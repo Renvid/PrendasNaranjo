@@ -145,12 +145,10 @@ body{
             clip-path: circle(150% at top left);
         }
 
-        .btn-primary{
-            background-color:#144272;
-            border-color:#0A2647;
+        .btn-primary {
+            background-color: #144272;
+            border-color: #0A2647;
         }
-     
-
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -180,17 +178,18 @@ body{
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li><a href="../inicio/inicio.aspx" style="color: white">Inicio</a></li>
-                            <li><a href="../Categorias/Categorias.aspx" style="color: white">Categorias de ropa</a></li>
-                            <li><a href="#" style="color: white">Mantenimientos</a>
+                            <li><a href="../Categorias/Categorias.aspx" style="color: white">Categorías</a></li>
+                            <li><a href="../../index.aspx" style="color: white">Inicia sesión</a></li>
+                            <li><a href="#" style="color: white" onclick="cerrarSesion()">Cerrar sesión</a></li>
+                            <li id="divMantenimientos"><a href="#" style="color: white">Mantenimientos</a>
                                 <ul class="dropdown">
                                     <li><a href="../mantenimientos/Inicio.aspx" style="color: white">Inicio</a></li>
                                     <li><a href="../mantenimientos/Categoria.aspx" style="color: white">Categorias</a></li>
                                     <li><a href="../mantenimientos/Generos.aspx" style="color: white">Generos</a></li>
-                                    <li><a href="../mantenimientos/Prenda.aspx" style="color: white">Prendas y Artículos</a></li>
+                                    <li><a href="../mantenimientos/Prenda.aspx" style="color: white">Productos</a></li>
                                     <li><a href="../mantenimientos/Usuario.aspx" style="color: white">Usuarios</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./inicio.html" style="color: white">Inicia sesión</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -204,16 +203,20 @@ body{
                         <div class="nav_links" id="menu">
                             <a href="../inicio/inicio.aspx" style="color: white">Inicio</a>
                             <a href="../Categorias/Categorias.aspx" style="color: white">Categorias de ropa</a>
-                            <a href="#" style="color: white">Mantenimientos</a>
+                            <a href="#" style="color: white">Inicia sesión</a>
+                            <ul class="dropdown">
+                                <li><a href="../mantenimientos/Inicio.aspx" style="color: white">Inicia sesión</a></li>
+                                <li><a href="../mantenimientos/Categoria.aspx" style="color: white">Recuperar contraseña</a></li>
+                            </ul>
+                            <a id="divMantenimientos2" href="#" style="color: white">Mantenimientos</a>
                             <ul class="dropdown">
                                 <li><a href="../mantenimientos/Inicio.aspx" style="color: white">Inicio</a></li>
                                 <li><a href="../mantenimientos/Categoria.aspx" style="color: white">Categorias</a></li>
                                 <li><a href="../mantenimientos/Generos.aspx" style="color: white">Generos</a></li>
-                                <li><a href="../mantenimientos/Prenda.aspx" style="color: white">Prendas</a></li>
+                                <li><a href="../mantenimientos/Prenda.aspx" style="color: white">Productos</a></li>
                                 <li><a href="../mantenimientos/Usuario.aspx" style="color: white">Usuarios</a></li>
                             </ul>
 
-                            <a href="./inicio.html" style="color: white">Inicia sesión</a>
                             <a href="#" class="nav_link">❌</a>
 
 
@@ -223,7 +226,7 @@ body{
                 </div>
 
             </div>
-            </div>
+        </div>
     </header>
 
     <!-- Header Section End -->
@@ -244,36 +247,52 @@ body{
     <script src="<%=ResolveClientUrl("~/UI/style/js/main.js")%>"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css"rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <!-- wsp button -->
-    <a href="https://wa.me/50662596907" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -59px; right: 27px;"
+        target="_blank">Contactar al distribuidor</a>
+    <a href="https://wa.me/50686321956" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
 
 </body>
 
-    <script>
-        //Mensajes de confirmacion de acciones para el usuario
+<script>
 
-        function New() {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Se ha creado con éxito!',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        };
+    if (localStorage.getItem('Usuario') == "1") {
+        document.getElementById("divMantenimientos").style.visibility = "visible";
+        document.getElementById("divMantenimientos2").style.visibility = "visible";
+    } else {
+        document.getElementById("divMantenimientos").style.visibility = "hidden";
+        document.getElementById("divMantenimientos2").style.visibility = "hidden";
+    }
 
-        function Update() {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Se ha actualizado con éxito!',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        };
-    </script>
+    function cerrarSesion() {
+        localStorage.setItem('Usuario', null);
+        location.reload();
+    }
+
+    //Mensajes de confirmacion de acciones para el usuario
+
+    function New() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se ha creado con éxito!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    };
+
+    function Update() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se ha actualizado con éxito!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    };
+</script>
 
 
 <%-- 

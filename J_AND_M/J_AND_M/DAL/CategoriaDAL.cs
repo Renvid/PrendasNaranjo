@@ -89,5 +89,18 @@ namespace J_AND_M.DAL
             DataSet ds = db.ExecuteReader(comando, "Categoria");
             return ds;
         }
+
+        public static DataSet spCategoria_Nombre(string Nombre)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("spCategoria_Nombre");
+
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@Nombre", Nombre);
+
+            DataSet ds = db.ExecuteReader(comando, "Categoria");
+            return ds;
+        }
     }
 }

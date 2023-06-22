@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 
 
+
 //Funcion para crear la tabla 
 function cargarInicial() {
     spinner.show();
@@ -40,6 +41,13 @@ function cargarInicial() {
                         document.getElementById("imagen_Ruta1").src = $(this).find("ImgRuta1").text();
                         document.getElementById("imagen_Ruta2").src = $(this).find("ImgRuta2").text();
                         document.getElementById("imagen_Ruta3").src = $(this).find("ImgRuta3").text();
+
+                        document.getElementById("txtImagenCorrusel1").value = $(this).find("Imagen_Carrousel_1").text();
+                        document.getElementById("txtImagenCorrusel2").value = $(this).find("Imagen_Carrousel_2").text();
+                        document.getElementById("txtColorCategoria").value = $(this).find("Color_Categoria").text();
+
+                        document.getElementById("imagenCorrusel1").src = $(this).find("Imagen_Carrousel_1").text();
+                        document.getElementById("imagenCorrusel2").src = $(this).find("Imagen_Carrousel_2").text();
                     })
 
             },
@@ -67,6 +75,9 @@ function btnAccept() {
     var ImgRuta2 = document.getElementById("txtImgRuta2").value;
     var SubTexto3 = document.getElementById("txtSubTexto3").value;
     var ImgRuta3 = document.getElementById("txtImgRuta3").value;
+    var Imagen_Carrousel_1 = document.getElementById("txtImagenCorrusel1").value;
+    var Imagen_Carrousel_2 = document.getElementById("txtImagenCorrusel2").value;
+    var ColorCategoria = document.getElementById("txtColorCategoria").value;
 
         spinner.show();
         setTimeout(function () {
@@ -83,7 +94,10 @@ function btnAccept() {
                 SubTexto2: SubTexto2,
                 ImgRuta2: ImgRuta2,
                 SubTexto3: SubTexto3,
-                ImgRuta3: ImgRuta3
+                ImgRuta3: ImgRuta3,
+                Imagen_Carrousel_1: Imagen_Carrousel_1,
+                Imagen_Carrousel_2: Imagen_Carrousel_2,
+                ColorCategoria: ColorCategoria
             };
 
             $.ajax({

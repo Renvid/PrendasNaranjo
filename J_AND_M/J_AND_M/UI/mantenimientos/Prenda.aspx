@@ -16,7 +16,7 @@
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h2 style="text-transform: none;">Prendas y Artículos</h2>
+                                <h2 style="text-transform: none;">Productos</h2>
                             </div>
                             <div>
                                 <button class="btn btn-primary btn-border btn-round" onclick="btnNew();">

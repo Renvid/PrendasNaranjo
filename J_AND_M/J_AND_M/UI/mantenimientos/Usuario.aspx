@@ -53,7 +53,7 @@
 
                     <!-- Modal 1 Nuevo -->
                     <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog" style="min-width: 95%">
                             <div class="modal-content">
                                 <!-- Modal Header -->
                                 <div class="modal-header">
@@ -63,52 +63,120 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
-
-                                    <div class="form-group">
-                                        <label>Nombre</label>
-                                        <input id="txtNombre" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Correo</label>
-                                        <input id="txtEmail" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nombre del usuario</label>
-                                        <input id="txtNombreUsuario" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Contraseña</label>
-                                        <div class="input-group mb-3">
-                                            <input id="txtContrasennia" type="password" class="form-control" aria-describedby="basic-addon1" required="required" data-placement="right" data-content="Este campo es requerido.">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <button onclick="mostrarContrasena()"><i class="fa fa-unlock-alt"></i></button>
-                                            </span>
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input id="txtNombre" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
                                         </div>
-                                        <script>
-                                            function mostrarContrasena() {
-                                                var inputContrasena = document.getElementById("txtContrasennia");
-                                                inputContrasena.type = "text";
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Apellidos</label>
+                                                <input id="txtApellidos" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Correo</label>
+                                                <input id="txtEmail" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-3">
+                                            <div class="form-group">
+                                                <label>Teléfono</label>
+                                                <input id="txtTelefono" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-3">
+                                            <div class="form-group">
+                                                <label>Nombre del usuario</label>
+                                                <input id="txtNombreUsuario" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <div class="input-group mb-3">
+                                                    <input id="txtContrasennia" type="password" class="form-control" aria-describedby="basic-addon1" required="required" data-placement="right" data-content="Este campo es requerido.">
+                                                    <span class="input-group-text" id="basic-addon1">
+                                                        <button onclick="mostrarContrasena()"><i class="fa fa-unlock-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                                <script>
+                                                    function mostrarContrasena() {
+                                                        var inputContrasena = document.getElementById("txtContrasennia");
+                                                        inputContrasena.type = "text";
 
-                                                setTimeout(function () {
-                                                    inputContrasena.type = "password";
-                                                }, 500);
-                                            }
-                                        </script>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Teléfono</label>
-                                        <input id="txtTelefono" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Comentarios</label>
-                                        <input id="txtComentarios" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tipo</label>
-                                        <select id="TipoUsuario" style="width: 100%">
-                                            <option value="1">Admin</option>
-                                            <option value="2">Cliente</option>
-                                        </select>
+                                                        setTimeout(function () {
+                                                            inputContrasena.type = "password";
+                                                        }, 500);
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-4">
+
+                                            <div class="form-group">
+                                                <label>Tipo</label>
+                                                <select id="TipoUsuario" style="width: 100%" class="form-control">
+                                                    <option value="1">Admin</option>
+                                                    <option value="2">Cliente</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-4">
+                                            <div class="form-group" style="margin-top: 39px">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="cbActivo">
+                                                    <label class="form-check-label" for="cbActivo" style="cursor: pointer">
+                                                        Activo
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Comentarios</label>
+                                                <input id="txtComentarios" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Mayorista / Detalle</label>
+                                                <input id="txtMayorista" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Dirección</label>
+                                                <input id="txtDireccion" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Provincia</label>
+                                                <input id="txtProvincia" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Cantón</label>
+                                                <input id="txtCanton" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Distrito</label>
+                                                <input id="txtDistrito" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Observaciones</label>
+                                                <textarea id="txtObservaciones" class="form-control" rows="4" cols="50"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>

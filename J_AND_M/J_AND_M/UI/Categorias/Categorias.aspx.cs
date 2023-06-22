@@ -35,5 +35,12 @@ namespace J_AND_M.UI.Categorias
             DataSet ds = DAL.PrendaDAL.Prendas_Por_Categoria(idGenero,idCategoria);
             return ds.GetXml();
         }
+
+        [WebMethod]
+        public static string Categoria_Nombre(string Nombre)
+        {
+            DataSet ds = DAL.CategoriaDAL.spCategoria_Nombre(Nombre);
+            return ds.GetXml();
+        }
     }
 }

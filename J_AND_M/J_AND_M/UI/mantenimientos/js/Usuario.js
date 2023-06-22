@@ -68,6 +68,14 @@ function btnNew() {
     document.getElementById("txtTelefono").value = "";
     document.getElementById("txtComentarios").value = "";
     document.getElementById("TipoUsuario").value = "2";
+    document.getElementById("cbActivo").checked = true;
+    document.getElementById("txtApellidos").value = "";
+    document.getElementById("txtMayorista").value = "";
+    document.getElementById("txtProvincia").value = "";
+    document.getElementById("txtCanton").value = "";
+    document.getElementById("txtDistrito").value = "";
+    document.getElementById("txtObservaciones").value = "";
+    document.getElementById("txtDireccion").value = "";
 
     document.getElementById("titleModal").innerHTML = "Nuevo";
     idUsuario = 0;
@@ -103,6 +111,21 @@ function btnEdit_click(clicked_id) {
                 $("#TipoUsuario").select2({
                     placeholder: $(this).find("Tipo").text()
                 });
+
+
+                if ($(this).find("activo").text() == 1)
+                    document.getElementById("cbActivo").checked = true
+                else
+                    document.getElementById("cbActivo").checked = false
+
+                document.getElementById("txtApellidos").value = $(this).find("apellidos").text();
+                document.getElementById("txtMayorista").value = $(this).find("mayorista").text();
+                document.getElementById("txtProvincia").value = $(this).find("provincia").text();
+                document.getElementById("txtCanton").value = $(this).find("canton").text();
+                document.getElementById("txtDistrito").value = $(this).find("distrito").text();
+                document.getElementById("txtDireccion").value = $(this).find("direccion").text();
+                document.getElementById("txtObservaciones").value = $(this).find("observaciones").text();
+
                 idUsuario = clicked_id;
                 document.getElementById("titleModal").innerHTML = "Actualizar";
 
@@ -220,6 +243,18 @@ function btnAccept() {
     var Comentarios = document.getElementById("txtComentarios").value;
     var Tipo = document.getElementById("TipoUsuario").value;
 
+    var Activo = "0";
+    if (document.getElementById("cbActivo").checked == true)
+        Activo = "1";
+
+    var apellidos =document.getElementById("txtApellidos").value 
+    var mayorista = document.getElementById("txtMayorista").value 
+    var provincia = document.getElementById("txtProvincia").value
+    var canton=document.getElementById("txtCanton").value
+    var distrito = document.getElementById("txtDistrito").value
+    var observaciones =document.getElementById("txtObservaciones").value 
+    var direccion =document.getElementById("txtDireccion").value 
+
     if (validate()) {
         spinner.show();
         setTimeout(function () {
@@ -232,7 +267,15 @@ function btnAccept() {
                 Contrasennia: Contrasennia,
                 Telefono: Telefono,
                 Comentarios: Comentarios,
-                Tipo: Tipo
+                Tipo: Tipo,
+                apellidos: apellidos,
+                mayorista: mayorista,
+                activo: Activo,
+                provincia: provincia,
+                canton: canton,
+                distrito: distrito,
+                direccion: direccion,
+                observaciones: observaciones
             };
 
             $.ajax({

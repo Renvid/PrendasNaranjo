@@ -29,10 +29,10 @@
         }
 
 
-        input{
-            outline:none;
+        input {
+            outline: none;
             box-sizing: border-box;
-            height:60px;
+            height: 60px;
             width: 0;
             padding: 0 20px;
             color: black;
@@ -42,15 +42,14 @@
             transition: all .7s ease;
         }
 
-        ::placeholder{
+        ::placeholder {
             color: grey;
         }
 
-        .btn{
+        .btn {
             position: absolute;
-           
             width: 50px;
-            height:50px;
+            height: 50px;
             background: #0026ff;
             border-radius: 80px;
             text-align: center;
@@ -58,29 +57,29 @@
             transition: .5s;
         }
 
-        .btn i{
-            font-size: 25px;
-            color: white;
-            line-height: 30px;
-            transition: all .7s ease;
-        }
-
-        .container:hover input{
+            .btn i {
+                font-size: 25px;
+                color: white;
+                line-height: 30px;
+                /*                transition: all .7s ease;*/
+            }
+            /*
+        .container:hover input {
             width: 350px;
         }
 
-        .container:hover i{
+        .container:hover i {
             transform: rotate(-360deg);
-        }
+        }*/
 
-        .btn:hover{
-            background:#0026ff
-        }
+            .btn:hover {
+                background: #0026ff
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option">
+    <section class="breadcrumb-option" id="color">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -96,34 +95,37 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-   <section class="shop spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <form class="search-form">
-                    <input type="text" placeholder="Buscar...">
-                    <div class="btn">
-                    <i class="fa fa-search"></i>
-                        </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="shop__sidebar">
-                    <div class="shop__sidebar__accordion">
-                        <div class="accordion" id="accordionExample">
+    <section class="shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 row">
+                    <div class="col-10">
+                        <input id="txtBuscar" type="text" class="form-control" placeholder="Buscar...">
+                    </div>
+                    <div class="col-2">
+                        <div class="btn" style="margin-top:-5%" onclick=" PrendasPorNombre()">
+                            <i class="fa fa-search"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9">
-                <div class="row" id="divPrendasCategoria">
+            <hr />
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop__sidebar">
+                        <div class="shop__sidebar__accordion">
+                            <div class="accordion" id="accordionExample">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row" id="divPrendasCategoria">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
@@ -133,10 +135,10 @@
                 <div class="modal-header">
 
 
-                    <a id="downloadLink" href="#" download><i class="fa fa-floppy-o" style="color: black"></i></a>
+                    <a id="downloadLink" style="font-size: 35px" href="#" download><i class="fa fa-floppy-o" style="color: black"></i></a>
 
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" style="font-size: 35px" class="close" data-dismiss="modal">&times;</button>
 
                 </div>
 
@@ -159,6 +161,13 @@
 
 
     <script type="text/javascript">
+        var TipoUsuario = "normal";
+
+        if (localStorage.getItem('Usuario') != null) {
+            TipoUsuario = "admin";
+        }
+
+        var spinner = $("#loader");
 
         $.ajax({
             type: "POST",
@@ -183,7 +192,7 @@
                                 <div class="shop__sidebar__categories">\
                                     <ul class="nice-scroll">'
 
-
+                    document.getElementById("color").style.backgroundColor = $(this).find("Color").text();
 
                     var params = "{ idGenero:'" + $(this).find("idGenero").text() + "' }";
                     $.ajax({
@@ -223,23 +232,30 @@
 
 
         function PrendasPorCategoria(Genero, Categoria) {
-            var params = "{ idGenero:'" + Genero + "',idCategoria:'" + Categoria + "' }";
-            $.ajax({
-                type: "POST",
-                url: "Categorias.aspx/Prendas_Por_Categoria",
-                data: params,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                async: false,
-                success: function (data) {
-                    var xmlDoc = $.parseXML(data.d);
-                    var xml = $(xmlDoc);
-                    var info = xml.find("Prendas");
-                    var cuerpo = "";
-                    console.log(info)
-                    $(info).each(function () {
+            spinner.show();
+            setTimeout(function () {
+                var params = "{ idGenero:'" + Genero + "',idCategoria:'" + Categoria + "' }";
+                $.ajax({
+                    type: "POST",
+                    url: "Categorias.aspx/Prendas_Por_Categoria",
+                    data: params,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        var xmlDoc = $.parseXML(data.d);
+                        var xml = $(xmlDoc);
+                        var info = xml.find("Prendas");
+                        var cuerpo = "";
+                        console.log(info)
+                        $(info).each(function () {
 
-                        cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
+                            var Precio = "";
+                            if (TipoUsuario == "admin") {
+                                Precio = '<h5>₡ ' + $(this).find("Precio").text() + '</h5>';
+                            }
+
+                            cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
                             <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
                         <img style="max-width:65%" src="'+ $(this).find("UrlImg").text() + '" />\
@@ -247,23 +263,80 @@
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
-                            <a href="https://wa.me/50662596907" target="_blank"><i class="fa fa-whatsapp"></i></a>\
-                            <h5>₡ '+ $(this).find("Precio").text() + '</h5>\
+                            <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
+                            '+ Precio+'\
                             </center>\
                         </div>\
                             </div>\
                         </div>'
-                    })
+                        })
 
-                    document.getElementById("divPrendasCategoria").innerHTML = cuerpo;
+                        document.getElementById("divPrendasCategoria").innerHTML = cuerpo;
 
-                },
-                error: function (result) {
-                    alert("Error");
-                }
+                    },
+                    error: function (result) {
+                        alert("Error");
+                    }
 
-            })
+                }).done(function (data) {
+                    spinner.hide();
+                });
+            }, 500);
         }
+
+        function PrendasPorNombre() {
+            spinner.show();
+            setTimeout(function () {
+                var params = "{ Nombre:'" + document.getElementById("txtBuscar").value + "' }";
+                $.ajax({
+                    type: "POST",
+                    url: "Categorias.aspx/Categoria_Nombre",
+                    data: params,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        var xmlDoc = $.parseXML(data.d);
+                        var xml = $(xmlDoc);
+                        var info = xml.find("Categoria");
+                        var cuerpo = "";
+                        console.log(info)
+                        $(info).each(function () {
+
+                            var Precio = "";
+                            if (TipoUsuario == "admin") {
+                                Precio = '<h5>₡ ' + $(this).find("Precio").text() + '</h5>';
+                            }
+
+                            cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
+                            <div class="product__item">\
+                        <div class="product__item__pic set-bg d-flex justify-content-center">\
+                        <img style="max-width:65%" src="'+ $(this).find("UrlImg").text() + '" />\
+                        </div>\
+                        <div class="product__item__text">\
+                              <center>\
+                            <h6>'+ $(this).find("Nombre").text() + '</h6>\
+                            <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
+                            '+ Precio+'\
+                            </center>\
+                        </div>\
+                            </div>\
+                        </div>'
+                        })
+
+                        document.getElementById("divPrendasCategoria").innerHTML = cuerpo;
+
+                    },
+                    error: function (result) {
+                        alert("Error");
+                    }
+
+                }).done(function (data) {
+                    spinner.hide();
+                });
+            }, 500);
+        }
+
 
         function test(url) {
             document.getElementById("imgModal").src = url;

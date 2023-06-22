@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -16,15 +17,16 @@ namespace J_AND_M
         }
 
         [WebMethod]
-        public static bool login(string user, string password)
+        public static string login(string user, string password)
         {
-            if((user=="mnavarro" && password =="Volcano18*")|| (user == "jzuniga" && password == "jenni2022*"))
+            if((user=="sa" && password =="sa123"))
             {
-                return true;
+                return "1";
             }
             else
             {
-                return false;
+                DataSet ds = DAL.UsuarioDAL.IniciarSesion(user, password);
+                return ds.GetXml(); 
             }
         }
     }
