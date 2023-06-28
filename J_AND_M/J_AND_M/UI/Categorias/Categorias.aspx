@@ -46,35 +46,37 @@
             color: grey;
         }
 
-        .btn {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: #0026ff;
-            border-radius: 80px;
-            text-align: center;
+                        
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
             cursor: pointer;
-            transition: .5s;
         }
 
-            .btn i {
-                font-size: 25px;
-                color: white;
-                line-height: 30px;
-                /*                transition: all .7s ease;*/
-            }
-            /*
-        .container:hover input {
-            width: 350px;
+        .download-button:hover {
+            background-color: greenyellow;
+        }
+              .price-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        .container:hover i {
-            transform: rotate(-360deg);
-        }*/
-
-            .btn:hover {
-                background: #0026ff
-            }
+        .price-button:hover {
+            background-color: greenyellow;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -99,13 +101,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 row">
-                    <div class="col-10">
+                    <div class="col-4">
                         <input id="txtBuscar" type="text" class="form-control" placeholder="Buscar...">
                     </div>
                     <div class="col-2">
-                        <div class="btn" style="margin-top:-5%" onclick=" PrendasPorNombre()">
+                        <div class="btn btn-dark" style="margin-top: -5%" onclick=" PrendasPorNombre()">
                             <i class="fa fa-search"></i>
                         </div>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-success" onclick="descargarImagenesDesdeGoogleDrive()">Descargar todas las imagenes</button>
+                    </div>
+                      <div class="col-2">
+                        <a href="https://onedrive.live.com/embed?resid=B39257C85152C73%2189462&authkey=!AN3HEuvtC8Vx0zM&em=2">
+                            <button class="download-button">Descargar Catalogo</button>
+                        </a>
+                    </div>
+                      <div class="col-2">
+                        <a href="https://onedrive.live.com/embed?resid=B39257C85152C73%2195466&authkey=%21AN3HEuvtC8Vx0zM&width=2480&height=3508" download>
+                            <button id="boton" class="price-button">Descargar lista de Precios</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -161,9 +176,61 @@
 
 
     <script type="text/javascript">
+
+        var myArray = []; //Link de todas las imagenes
+
+
+        function descargarImagenesDesdeGoogleDrive() {
+
+            // Función auxiliar para descargar una imagen
+            function descargarImagen(url, nombreArchivo) {
+                return new Promise((resolve, reject) => {
+                    const enlaceTemporal = document.createElement('a');
+                    enlaceTemporal.href =  url;
+                    enlaceTemporal.download = nombreArchivo;
+
+                    enlaceTemporal.style.display = 'none';
+                    document.body.appendChild(enlaceTemporal);
+
+                    // Esperar a que el enlace se haya agregado correctamente antes de hacer click
+                    setTimeout(() => {
+                        try {
+                            enlaceTemporal.click();
+                            resolve();
+                        } catch (error) {
+                            reject(error);
+                        } finally {
+                            document.body.removeChild(enlaceTemporal);
+                        }
+                    }, 500);
+                });
+            }
+
+            // Función principal asincrónica para descargar todas las imágenes
+            async function descargarTodasLasImagenes() {
+                for (let i = 0; i < myArray.length; i++) {
+                    const url = myArray[i];
+                    const nombreArchivo = `imagen_${i + 1}.jpg`; // Nombre de archivo único para cada imagen
+
+                    try {
+                        await descargarImagen(url, nombreArchivo);
+                        console.log(`Imagen ${i + 1} descargada con éxito.`);
+                    } catch (error) {
+                        console.error(`Error al descargar imagen ${i + 1}:`, error);
+                    }
+                }
+            }
+
+            // Llamar a la función principal asincrónica para descargar las imágenes
+            descargarTodasLasImagenes();
+        }
+
+
+
+
         var TipoUsuario = "normal";
 
-        if (localStorage.getItem('Usuario') != null) {
+        if (localStorage.getItem('Usuario') != null && localStorage.getItem('Usuario') != "null") {
             TipoUsuario = "admin";
         }
 
@@ -248,12 +315,17 @@
                         var info = xml.find("Prendas");
                         var cuerpo = "";
                         console.log(info)
+
+                        myArray = [];
+
                         $(info).each(function () {
 
                             var Precio = "";
                             if (TipoUsuario == "admin") {
                                 Precio = '<h5>₡ ' + $(this).find("Precio").text() + '</h5>';
                             }
+
+                            myArray.push($(this).find("UrlImg").text());
 
                             cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
                             <div class="product__item">\
@@ -264,7 +336,7 @@
                               <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
                             <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
-                            '+ Precio+'\
+                            '+ Precio + '\
                             </center>\
                         </div>\
                             </div>\
@@ -317,7 +389,7 @@
                               <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
                             <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
-                            '+ Precio+'\
+                            '+ Precio + '\
                             </center>\
                         </div>\
                             </div>\
