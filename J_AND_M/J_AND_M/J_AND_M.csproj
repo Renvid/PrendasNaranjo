@@ -128,6 +128,8 @@
     <Content Include="UI\style\css\owl.carousel.min.css" />
     <Content Include="UI\style\css\slicknav.min.css" />
     <Content Include="UI\style\css\style.css" />
+    <Content Include="UI\style\email\promise.js" />
+    <Content Include="UI\style\email\smtp.js" />
     <Content Include="UI\style\fonts\ElegantIcons.svg" />
     <Content Include="UI\style\fonts\fontawesome-webfont.svg" />
     <Content Include="UI\style\img\about\about-us.jpg" />

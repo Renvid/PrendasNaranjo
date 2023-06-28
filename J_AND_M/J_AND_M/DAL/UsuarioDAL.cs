@@ -11,7 +11,7 @@ namespace J_AND_M.DAL
     public class UsuarioDAL
     {
         // Create 
-        public static void New(string Nombre, string Email, string NombreUsuario, string Contrasennia, string Telefono, string Comentarios, int Tipo
+        public static void New(string Nombre, string Email, string NombreUsuario, string Contrasennia, string Telefono, string fecha, int Tipo
             , string apellidos , string mayorista,int activo, string provincia, string canton, string distrito, string direccion, string observaciones)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
@@ -24,7 +24,7 @@ namespace J_AND_M.DAL
             comando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
             comando.Parameters.AddWithValue("@Contrasennia", Contrasennia);
             comando.Parameters.AddWithValue("@Telefono", Telefono);
-            comando.Parameters.AddWithValue("@Comentarios", Comentarios);
+            comando.Parameters.AddWithValue("@fecha", fecha);
             comando.Parameters.AddWithValue("@Tipo", Tipo);
             comando.Parameters.AddWithValue("@apellidos", apellidos);
             comando.Parameters.AddWithValue("@mayorista", mayorista);
@@ -39,7 +39,7 @@ namespace J_AND_M.DAL
         }
 
         // Update 
-        public static void Update(int idUsuario, string Nombre, string Email, string NombreUsuario, string Contrasennia, string Telefono, string Comentarios, int Tipo
+        public static void Update(int idUsuario, string Nombre, string Email, string NombreUsuario, string Contrasennia, string Telefono, string fecha, int Tipo
                         , string apellidos, string mayorista, int activo, string provincia, string canton, string distrito, string direccion, string observaciones)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
@@ -53,7 +53,7 @@ namespace J_AND_M.DAL
             comando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
             comando.Parameters.AddWithValue("@Contrasennia", Contrasennia);
             comando.Parameters.AddWithValue("@Telefono", Telefono);
-            comando.Parameters.AddWithValue("@Comentarios", Comentarios);
+            comando.Parameters.AddWithValue("@fecha", fecha);
             comando.Parameters.AddWithValue("@Tipo", Tipo);
             comando.Parameters.AddWithValue("@apellidos", apellidos);
             comando.Parameters.AddWithValue("@mayorista", mayorista);

@@ -27,26 +27,41 @@ function fillTable() {
 
 
                 $(info).each(function () {
-                    var tipo = "";
-                    var Contrasennia = "********************";
+                    var Tipo = "";
                     if ($(this).find("Tipo").text() == "1") {
                         Tipo = "Admin";
                     } else if ($(this).find("Tipo").text() == "2") {
                         Tipo = "Cliente";
                     }
 
-                    cuerpo += "<tr  alt='Editar' title='Editar'  style='cursor: pointer;' id='" + $(this).find("idUsuario").text() + "' onClick='btnEdit_click(this.id)' >\
+                    var Activo = "Usuario Inactivo";
+                    if ($(this).find("activo").text() == 1)
+                        Activo = "Usuario Activo"
+
+                    var Fecha1 = new Date();
+                    var Fecha2 = new Date($(this).find("fecha").text());
+                    var Difference_In_Time = Fecha1.getTime() - Fecha2.getTime();
+                    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+                    var Color = " style='cursor: pointer;background-color:white'";
+                    if (Activo == "Usuario Inactivo" || (Difference_In_Days > 30 && Tipo == "Cliente")) {
+                        Color =" style='cursor: pointer;background-color:lightcoral'"
+                    }
+
+                    cuerpo += "<tr alt='Editar' title='Editar'  " + Color+" id='" + $(this).find("idUsuario").text() + "' onClick='btnEdit_click(this.id)' >\
                                     <td>" + $(this).find("Nombre").text() + "</td> \
                                     <td>" + $(this).find("Email").text() + "</td> \
                                     <td>" + $(this).find("NombreUsuario").text() + "</td> \
-                                    <td>" + Contrasennia + "</td> \
                                     <td>" + $(this).find("Telefono").text() + "</td> \
-                                    <td>" + $(this).find("Comentarios").text() + "</td> \
+                                    <td>" + $(this).find("fecha").text() + "</td> \
+                                    <td>" + Activo + "</td> \
                                     <td>" + Tipo + "</td> \
                                    </tr>";
                 })
 
                 document.getElementById("cuerpoTb").innerHTML = cuerpo;
+
+                    let table = new DataTable('#gvTable');
 
             },
             error: function (result) {
@@ -66,7 +81,7 @@ function btnNew() {
     document.getElementById("txtNombreUsuario").value = "";
     document.getElementById("txtContrasennia").value = "";
     document.getElementById("txtTelefono").value = "";
-    document.getElementById("txtComentarios").value = "";
+    document.getElementById("txtFecha").value = "";
     document.getElementById("TipoUsuario").value = "2";
     document.getElementById("cbActivo").checked = true;
     document.getElementById("txtApellidos").value = "";
@@ -106,7 +121,7 @@ function btnEdit_click(clicked_id) {
                 document.getElementById("txtNombreUsuario").value = $(this).find("NombreUsuario").text();
                 document.getElementById("txtContrasennia").value = $(this).find("Contrasennia").text();
                 document.getElementById("txtTelefono").value = $(this).find("Telefono").text();
-                document.getElementById("txtComentarios").value = $(this).find("Comentarios").text();
+                document.getElementById("txtFecha").value = $(this).find("fecha").text();
                 document.getElementById("TipoUsuario").value = $(this).find("Tipo").text();
                 $("#TipoUsuario").select2({
                     placeholder: $(this).find("Tipo").text()
@@ -203,18 +218,6 @@ function validate() {
             $("#txtTelefono").popover("disable");
         }, 3000);
     }
-    var Comentarios = document.getElementById("txtComentarios").value;
-
-    if (Comentarios.trim() == "") {
-        isGood = false;
-        document.getElementById("txtComentarios").focus();
-        $("#txtComentarios").popover("enable");
-        $("#txtComentarios").popover("toggle");
-        setTimeout(function () {
-            $("#txtComentarios").popover("toggle");
-            $("#txtComentarios").popover("disable");
-        }, 3000);
-    }
     var Tipo = document.getElementById("TipoUsuario").value;
 
     if (Tipo.trim() == "") {
@@ -240,7 +243,7 @@ function btnAccept() {
     var NombreUsuario = document.getElementById("txtNombreUsuario").value;
     var Contrasennia = document.getElementById("txtContrasennia").value;
     var Telefono = document.getElementById("txtTelefono").value;
-    var Comentarios = document.getElementById("txtComentarios").value;
+    var Fecha = document.getElementById("txtFecha").value;
     var Tipo = document.getElementById("TipoUsuario").value;
 
     var Activo = "0";
@@ -266,7 +269,7 @@ function btnAccept() {
                 NombreUsuario: NombreUsuario,
                 Contrasennia: Contrasennia,
                 Telefono: Telefono,
-                Comentarios: Comentarios,
+                fecha: Fecha,
                 Tipo: Tipo,
                 apellidos: apellidos,
                 mayorista: mayorista,

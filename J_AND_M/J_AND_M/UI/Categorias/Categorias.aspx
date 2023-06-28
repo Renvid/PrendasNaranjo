@@ -73,7 +73,7 @@
                         <input id="txtBuscar" type="text" class="form-control" placeholder="Buscar...">
                     </div>
                     <div class="col-lg-2 col-4" style="padding-top: 5px">
-                        <div class="btn btn-dark" style="margin-top: -5%" onclick=" PrendasPorNombre()">
+                        <div class="btn btn-dark" id="btnBuscar" style="margin-top: -5%" onclick=" PrendasPorNombre()">
                             <i class="fa fa-search"></i>
                         </div>
                     </div>
@@ -139,9 +139,13 @@
 
 
 
-
-
     <script type="text/javascript">
+        $('#txtBuscar').keypress(function (e) {
+            if (e.keyCode == 13)
+                $('#btnBuscar').click();
+        });
+
+
         if (localStorage.getItem('Usuario') == "1") {
             document.getElementById("ListaPrecios").style.visibility = "visible";
         } else {
@@ -297,6 +301,13 @@
                                 Precio = '<h5>₡ ' + $(this).find("Precio").text() + '</h5>';
                             }
 
+                            var Nombre = "";
+                            if ($(this).find("Agotado").text() == "1") {
+                                Nombre = "<label style='color:red'> AGOTADO </label>"
+                            } else {
+                                Nombre = $(this).find("Nombre").text();
+                            }
+
                             myArray.push($(this).find("UrlImg").text());
 
                             cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
@@ -306,7 +317,7 @@
                         </div>\
                         <div class="product__item__text">\
                               <center>\
-                            <h6>'+ $(this).find("Nombre").text() + '</h6>\
+                            <h6>'+ Nombre + '</h6>\
                             <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
                             '+ Precio + '\
                             </center>\
@@ -352,6 +363,13 @@
                                 Precio = '<h5>₡ ' + $(this).find("Precio").text() + '</h5>';
                             }
 
+                            var Nombre = "";
+                            if ($(this).find("Agotado").text() == "1") {
+                                Nombre = "<label style='color:red'> AGOTADO </label>"
+                            } else {
+                                Nombre = $(this).find("Nombre").text();
+                            }
+
                             cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
                             <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
@@ -359,7 +377,7 @@
                         </div>\
                         <div class="product__item__text">\
                               <center>\
-                            <h6>'+ $(this).find("Nombre").text() + '</h6>\
+                            <h6>'+ Nombre + '</h6>\
                             <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
                             '+ Precio + '\
                             </center>\

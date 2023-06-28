@@ -4,6 +4,7 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="../style/OwnJS/myStyle.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -36,9 +37,9 @@
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Nombre De Usuario</th>
-                                            <th>Contraseña</th>
                                             <th>Teléfono</th>
-                                            <th>Comentarios</th>
+                                            <th>Fecha última venta</th>
+                                            <th>Estado</th>
                                             <th>Tipo</th>
                                         </tr>
                                     </thead>
@@ -125,7 +126,13 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-4">
+                                        <div class="col-12 col-lg-3">
+                                            <div class="form-group">
+                                                <label>Fecha última compra</label>
+                                                <input id="txtFecha" type="date" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-1">
                                             <div class="form-group" style="margin-top: 39px">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="cbActivo">
@@ -133,12 +140,6 @@
                                                         Activo
                                                     </label>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label>Comentarios</label>
-                                                <input id="txtComentarios" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -197,6 +198,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="../style/OwnJS/functions.js"></script>
     <script src="js/Usuario.js"></script>
 

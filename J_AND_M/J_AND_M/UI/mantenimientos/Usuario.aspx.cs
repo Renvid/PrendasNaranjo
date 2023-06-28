@@ -31,16 +31,16 @@ namespace J_AND_M.UI.mantenimientos
 
         //Funcion para crear o actualizar el formulario 
         [WebMethod]
-        public static void NewUpdate(int idUsuario, string Nombre, string Email, string NombreUsuario, string Contrasennia, string Telefono, string Comentarios, int Tipo
+        public static void NewUpdate(int idUsuario, string Nombre, string Email, string NombreUsuario, string Contrasennia, string Telefono, string fecha, int Tipo
                                     , string apellidos, string mayorista, int activo, string provincia, string canton, string distrito, string direccion, string observaciones)
         {
             if (idUsuario == 0)
             {
-                DAL.UsuarioDAL.New(Nombre, Email, NombreUsuario, Contrasennia, Telefono, Comentarios, Tipo, apellidos, mayorista, activo, provincia, canton, distrito, direccion, observaciones);
+                DAL.UsuarioDAL.New(Nombre, Email, NombreUsuario, Contrasennia, Telefono, fecha, Tipo, apellidos, mayorista, activo, provincia, canton, distrito, direccion, observaciones);
             }
             else
             {
-                DAL.UsuarioDAL.Update(idUsuario, Nombre, Email, NombreUsuario, Contrasennia, Telefono, Comentarios, Tipo, apellidos, mayorista, activo, provincia, canton, distrito, direccion, observaciones);
+                DAL.UsuarioDAL.Update(idUsuario, Nombre, Email, NombreUsuario, Contrasennia, Telefono, fecha, Tipo, apellidos, mayorista, activo, provincia, canton, distrito, direccion, observaciones);
             }
         }
 

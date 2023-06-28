@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>J AND M</title>
+    <title>X-MONT Distribuidora</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link href="UI/style/css/normalize.css" rel="stylesheet" />
     <link href="UI/style/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
 
         .frame {
             height: 575px;
-            width: 430px;
+            width: 364px;
             background: linear-gradient( rgba(35,43,85,0.75), rgba(35,43,85,0.95)), url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center;
             background-size: cover;
             margin-left: auto;
@@ -109,7 +109,7 @@
         }
 
         .form-signin {
-            width: 430px;
+            width: 100%;
             height: 375px;
             font-size: 16px;
             font-weight: 300;
@@ -125,7 +125,7 @@
         }
 
         .form-signup {
-            width: 430px;
+            width: 100%;
             height: 375px;
             font-size: 16px;
             font-weight: 300;
@@ -543,8 +543,6 @@
             transform: translate(-50%,-50%);
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  </head>
 </head>
 <body>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
@@ -558,11 +556,13 @@
         </div>
     </div>
     <div class="container">
-        <div class="frame">
+        <div class="row">
+            <div class="col-12">
+                        <div class="frame">
             <div class="nav">
                 <ul class="links">
-                    <li class="signin-active"><a class="btn">Iniciar Sesión</a></li>
-                    <li class="signup-inactive"><a class="btn">Cambio Contraseña</a></li>
+                    <li class="signin-active"><a class="btn">Login</a></li>
+                    <li class="signup-inactive"><a class="btn">Contraseña</a></li>
                 </ul>
             </div>
             <div ng-app="" ng-init="checked = false">
@@ -570,9 +570,9 @@
                     <label for="username">Nombre de Usuario o Email</label>
                     <input class="form-styling" type="text" name="username" placeholder="usuario@gmail.com" id="pUsername" required="required" data-placement="right" data-content="Este campo es requerido." />
                     <label for="password">Contraseña</label>
-                    <input class="form-styling" type="text" name="Contraseña" placeholder="" id="pPassword" required="required" data-placement="right" data-content="Este campo es requerido."  />
+                    <input class="form-styling" type="password" name="Contraseña" placeholder="" id="pPassword" required="required" data-placement="right" data-content="Este campo es requerido." />
                     <div class="btn-animate">
-                        <input type="button" class="btn-signin" value="Iniciar Sesión" id="btnLogin" style="background-color:darkblue" />
+                        <input type="button" class="btn-signin" value="Iniciar Sesión" id="btnLogin" style="background-color: darkblue" />
                     </div>
                 </div>
                 <div class="form-signup">
@@ -584,11 +584,14 @@
                     <input class="form-styling" type="text" name="Contraseña" placeholder="" />
                     <label for="confirmpassword">Confirmar Contraseña</label>
                     <input class="form-styling" type="text" name="ConfirmarContraseña" placeholder="" />
-                    <a ng-click="checked = !checked" class="btn-signup">Cambiar Contraseña</a>
+                    <input type="button" class="btn-signin" value="Cambiar Contraseña" onclick="sendEmail" style="background-color: darkblue" />
                 </div>
             </div>
 
         </div>
+            </div>
+        </div>
+
 
 
     </div>
@@ -597,11 +600,12 @@
     <script src="UI/style/js/jquery-3.3.1.min.js"></script>
     <script src="UI/style/js/popper.min.js"></script>
     <script src="UI/style/js/sweetalert.min.js"></script>
-    <script src="UI/style/js/bootstrap/bootstrap.min.js"></script>
+
     <script src="UI/js/sweetalert.min.js"></script>
     <script src="UI/index/index.js"></script>
 
     <script>
+
         localStorage.setItem('Usuario', null);
         $(document).ready(function () {
             $('#pUsername').keypress(function (e) {
@@ -672,11 +676,11 @@
                                         console.log(existe)
                                     })
 
-                                    if (existe != "" && existe != "No existe el usuario") {
+                                    if (existe != "" && existe != "No existe el usuario" && existe != "El usuario está inactivo") {
                                         window.location.href = 'UI/inicio/inicio.aspx';
                                         localStorage.setItem('Usuario', existe);
                                     } else {
-                                        ErrorLogin()
+                                        ErrorLogin(existe)
                                     }
                                 }
 
@@ -699,9 +703,13 @@
             });
         });
 
-        function ErrorLogin() {
+        function ErrorLogin(valor) {
+            if (valor == "") {
+                valor = 'El usuario o la contraseña es incorrecta'
+            }
+
             swal({
-                text: 'El usuario o la contraseña es incorrecta',
+                text: valor,
                 type: "error",
                 icon: "error",
                 time: 3000,

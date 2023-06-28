@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>Prendas</title>
+    <title>X-MONT Distribuidora</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!-- Favicons -->
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -170,7 +170,7 @@ body{
             <div class="row">
                 <div class="col-lg-2 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="../inicio/inicio.aspx">
                             <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width:60%"></a>
                     </div>
                 </div>
@@ -202,21 +202,9 @@ body{
                         </a>
                         <div class="nav_links" id="menu">
                             <a href="../inicio/inicio.aspx" style="color: white">Inicio</a>
-                            <a href="../Categorias/Categorias.aspx" style="color: white">Categorias de ropa</a>
-                            <a href="#" style="color: white">Inicia sesión</a>
-                            <ul class="dropdown">
-                                <li><a href="../mantenimientos/Inicio.aspx" style="color: white">Inicia sesión</a></li>
-                                <li><a href="../mantenimientos/Categoria.aspx" style="color: white">Recuperar contraseña</a></li>
-                            </ul>
-                            <a id="divMantenimientos2" href="#" style="color: white">Mantenimientos</a>
-                            <ul class="dropdown">
-                                <li><a href="../mantenimientos/Inicio.aspx" style="color: white">Inicio</a></li>
-                                <li><a href="../mantenimientos/Categoria.aspx" style="color: white">Categorias</a></li>
-                                <li><a href="../mantenimientos/Generos.aspx" style="color: white">Generos</a></li>
-                                <li><a href="../mantenimientos/Prenda.aspx" style="color: white">Productos</a></li>
-                                <li><a href="../mantenimientos/Usuario.aspx" style="color: white">Usuarios</a></li>
-                            </ul>
-
+                            <a href="../Categorias/Categorias.aspx" style="color: white">Categorías</a>
+                            <a href="../../index.aspx" style="color: white">Inicia sesión</a>
+                            <a href="#" style="color: white" onclick="cerrarSesion()">Cerrar sesión</a>
                             <a href="#" class="nav_link">❌</a>
 
 
