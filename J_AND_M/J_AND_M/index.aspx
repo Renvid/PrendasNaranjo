@@ -672,7 +672,7 @@
                                         console.log(existe)
                                     })
 
-                                    if (existe != "") {
+                                    if (existe != "" && existe != "No existe el usuario") {
                                         window.location.href = 'UI/inicio/inicio.aspx';
                                         localStorage.setItem('Usuario', existe);
                                     } else {

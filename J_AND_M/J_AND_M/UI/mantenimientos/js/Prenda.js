@@ -339,3 +339,10 @@ function Update() {
         timer: 1500
     })
 };
+
+
+function Drive() {
+        var text = document.getElementById("txtUrlImg").value;
+    document.getElementById("txtUrlImg").value = "https://drive.google.com/uc?export=download&id=" + text.substring(32, 65);
+    document.getElementById("imagen_Ruta").src = "https://drive.google.com/uc?export=download&id=" + text.substring(32, 65);
+}

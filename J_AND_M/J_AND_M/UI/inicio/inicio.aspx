@@ -11,7 +11,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Hero Section Begin -->
-
     <section class="hero" style="width: 100%">
         <div class="hero__slider owl-carousel" id="carouselPrincipal">
 
@@ -103,7 +102,7 @@
                 <div class="modal-header">
 
 
-                    <a id="downloadLink" href="#" download style="font-size:35px"><i class="fa fa-floppy-o" style="color: black"></i></a>
+                    <a id="downloadLink" class="btn btn-dark"  download style="font-size:35px">Descargar Imagen</a>
 
 
                     <button type="button" class="close" style="font-size:35px" data-dismiss="modal">&times;</button>

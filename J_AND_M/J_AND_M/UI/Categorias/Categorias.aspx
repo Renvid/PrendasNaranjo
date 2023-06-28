@@ -45,38 +45,6 @@
         ::placeholder {
             color: grey;
         }
-
-                        
-        .download-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .download-button:hover {
-            background-color: greenyellow;
-        }
-              .price-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .price-button:hover {
-            background-color: greenyellow;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -101,44 +69,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 row">
-                    <div class="col-4">
+                    <div class="col-lg-4 col-8">
                         <input id="txtBuscar" type="text" class="form-control" placeholder="Buscar...">
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2 col-4" style="padding-top: 5px">
                         <div class="btn btn-dark" style="margin-top: -5%" onclick=" PrendasPorNombre()">
                             <i class="fa fa-search"></i>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2 col-12" style="padding-top: 5px">
                         <button class="btn btn-success" onclick="descargarImagenesDesdeGoogleDrive()">Descargar todas las imagenes</button>
                     </div>
-                      <div class="col-2">
-                        <a href="https://onedrive.live.com/embed?resid=B39257C85152C73%2189462&authkey=!AN3HEuvtC8Vx0zM&em=2">
-                            <button class="download-button">Descargar Catalogo</button>
+                    <div class="col-lg-2 col-12" style="padding-top: 5px">
+                        <a class="btn btn-success" href="https://onedrive.live.com/embed?resid=B39257C85152C73%2189462&authkey=!AN3HEuvtC8Vx0zM&em=2" target="_blank">Descargar Catálogo
                         </a>
                     </div>
-                      <div class="col-2">
-                        <a href="https://onedrive.live.com/embed?resid=B39257C85152C73%2195466&authkey=%21AN3HEuvtC8Vx0zM&width=2480&height=3508" download>
-                            <button id="boton" class="price-button">Descargar lista de Precios</button>
+                    <div class="col-lg-2 col-12" style="padding-top: 5px">
+                        <a id="ListaPrecios" class="btn btn-success" href="https://onedrive.live.com/embed?resid=B39257C85152C73%2195466&authkey=%21AN3HEuvtC8Vx0zM&width=2480&height=3508" download>Descargar lista de Precios
                         </a>
                     </div>
                 </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="shop__sidebar">
-                        <div class="shop__sidebar__accordion">
-                            <div class="accordion" id="accordionExample">
-                            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="row" id="divPrendasCategoria">
-                    </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row" id="divPrendasCategoria">
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -176,6 +142,12 @@
 
 
     <script type="text/javascript">
+        if (localStorage.getItem('Usuario') == "1") {
+            document.getElementById("ListaPrecios").style.visibility = "visible";
+        } else {
+            document.getElementById("ListaPrecios").style.visibility = "hidden";
+        }
+
 
         var myArray = []; //Link de todas las imagenes
 
@@ -186,7 +158,7 @@
             function descargarImagen(url, nombreArchivo) {
                 return new Promise((resolve, reject) => {
                     const enlaceTemporal = document.createElement('a');
-                    enlaceTemporal.href =  url;
+                    enlaceTemporal.href = url;
                     enlaceTemporal.download = nombreArchivo;
 
                     enlaceTemporal.style.display = 'none';

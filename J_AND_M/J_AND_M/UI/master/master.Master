@@ -122,7 +122,7 @@ body{
             bottom: 0;
             top: 80px;
             right: 0;
-            background-color: #0A2647;
+            background-color: black;
             display: grid;
             place-items: center;
             clip-path: circle(0% at top left);
@@ -147,7 +147,7 @@ body{
 
         .btn-primary {
             background-color: #144272;
-            border-color: #0A2647;
+            border-color: black;
         }
     </style>
 
@@ -165,13 +165,13 @@ body{
         </div>
     </div>
     <!-- Header Section Begin -->
-    <header style="background-color: #0A2647">
+    <header style="background-color: black">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-3">
                     <div class="header__logo">
                         <a href="./index.html">
-                            <img src="https://drive.google.com/file/d/1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh/view?usp=sharing"></a>
+                            <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width:60%"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -231,6 +231,7 @@ body{
 
     <!-- Header Section End -->
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
     </asp:ContentPlaceHolder>
 
     <!-- Search End -->
@@ -257,7 +258,7 @@ body{
 </body>
 
 <script>
-
+    console.log(localStorage.getItem('Usuario') )
     if (localStorage.getItem('Usuario') == "1") {
         document.getElementById("divMantenimientos").style.visibility = "visible";
         document.getElementById("divMantenimientos2").style.visibility = "visible";
