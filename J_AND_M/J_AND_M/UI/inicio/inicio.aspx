@@ -13,7 +13,6 @@
     <!-- Hero Section Begin -->
     <section class="hero" style="width: 100%">
         <div class="hero__slider owl-carousel" id="carouselPrincipal">
-
         </div>
     </section>
     <!-- Hero Section End -->
@@ -35,17 +34,17 @@
                 <div class="col-lg-5">
                     <div class="banner__item banner__item--middle">
                         <div class="banner__item__pic">
-                            <img id="txtImgRuta2" src=".." alt="">
+                            <img id="txtImgRuta2" src=".." alt="" style="max-width: 60%">
                         </div>
                         <div class="banner__item__text">
                             <h2 id="txtSubTexto2"></h2>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="banner__item banner__item--last">
-                        <div class="banner__item__pic">
-                            <img id="txtImgRuta3" src=".." alt="">
+                <div class="col-lg-7 offset-lg-4">
+                    <div class="banner__item">
+                        <div class="banner__item__pic d-flex justify-content-end">
+                            <img id="txtImgRuta3" src=".." alt="" style="max-width: 45%">
                         </div>
                         <div class="banner__item__text">
                             <h2 id="txtSubTexto3"></h2>
@@ -63,8 +62,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="filter__controls">
-                         <li class="active" data-filter="*" >Más Vendidos y Nuevas Prendas</li>
-                        <li  data-filter=".mas-vendido" >Más Vendidos</li>
+                        <li class="active" data-filter="*">Más Vendidos y Nuevas Prendas</li>
+                        <li data-filter=".mas-vendido">Más Vendidos</li>
                         <li data-filter=".nuevas" id="btnMasvendido">Nuevas prendas</li>
                     </ul>
                 </div>
@@ -85,7 +84,7 @@
         </div>
     </div>
 
-        <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content" style="background-color: rgba(192,192,192,0.6);">
@@ -93,10 +92,10 @@
                 <div class="modal-header">
 
 
-                    <a id="downloadLink" class="btn btn-dark"  download style="font-size:35px">Descargar Imagen</a>
+                    <a id="downloadLink" class="btn btn-dark" download style="font-size: 35px">Descargar Imagen</a>
 
 
-                    <button type="button" class="close" style="font-size:35px" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" style="font-size: 35px" data-dismiss="modal">&times;</button>
 
                 </div>
 
@@ -116,15 +115,6 @@
 
     <!-- Footer Section End -->
 
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
 
 
 
@@ -163,7 +153,7 @@
 
                     $(info).each(function () {
                         var comillaSimple = "'";
-                        var cuerpo = '<div class="hero__items set-bg" style="background: url(' + comillaSimple + '' + $(this).find("Imagen_Carrousel_1").text() + '' + comillaSimple +');background-repeat: no-repeat;background-size: cover;">\
+                        var cuerpo = '<div class="hero__items set-bg" style="background: url(' + comillaSimple + '' + $(this).find("Imagen_Carrousel_1").text() + '' + comillaSimple + ');background-repeat: no-repeat;background-size: cover;">\
                         <div class="container">\
                             <div class="row">\
                                 <div class="col-xl-5 col-lg-7 col-md-8">\
@@ -236,13 +226,13 @@
                     cuerpo += '<div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix nuevas">\
                         <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
-                        <img onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="'+ $(this).find("UrlImg").text() + '" />\
+                        <img onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
                         </div>\
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
                             <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
-                            '+ Precio+'\
+                            '+ Precio + '\
                             </center>\
                         </div>\
                     </div >\
@@ -278,13 +268,13 @@
                     cuerpo += '<div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix mas-vendido">\
                         <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
-                        <img onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="'+ $(this).find("UrlImg").text() + '" />\
+                        <img onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
                         </div>\
                         <div class="product__item__text">\
                         <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
                             <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
-                            '+ Precio+'\
+                            '+ Precio + '\
                             </center>\
                         </div>\
                     </div >\

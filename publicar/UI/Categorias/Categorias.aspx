@@ -81,30 +81,30 @@
                         <button class="btn btn-success" onclick="descargarImagenesDesdeGoogleDrive()">Descargar todas las imagenes</button>
                     </div>
                     <div class="col-lg-2 col-12" style="padding-top: 5px">
-                        <a class="btn btn-success" href="https://onedrive.live.com/embed?resid=B39257C85152C73%2189462&authkey=!AN3HEuvtC8Vx0zM&em=2" target="_blank">Descargar Catálogo
+                        <a class="btn btn-success" id="catalogo" href=".." target="_blank">Descargar Catálogo
                         </a>
                     </div>
                     <div class="col-lg-2 col-12" style="padding-top: 5px">
-                        <a id="ListaPrecios" class="btn btn-success" href="https://onedrive.live.com/embed?resid=B39257C85152C73%2195466&authkey=%21AN3HEuvtC8Vx0zM&width=2480&height=3508" download>Descargar lista de Precios
+                        <a id="ListaPrecios" class="btn btn-success" href=".." download>Descargar lista de Precios
                         </a>
                     </div>
                 </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="shop__sidebar">
-                    <div class="shop__sidebar__accordion">
-                        <div class="accordion" id="accordionExample">
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop__sidebar">
+                        <div class="shop__sidebar__accordion">
+                            <div class="accordion" id="accordionExample">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="row" id="divPrendasCategoria">
+                <div class="col-lg-9">
+                    <div class="row" id="divPrendasCategoria">
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -116,7 +116,7 @@
                 <div class="modal-header">
 
 
-                    <a id="downloadLink" style="font-size: 35px" href="#" download><i class="fa fa-floppy-o" style="color: black"></i></a>
+                    <a id="downloadLink" class="btn btn-dark" download style="font-size: 35px">Descargar Imagen</a>
 
 
                     <button type="button" style="font-size: 35px" class="close" data-dismiss="modal">&times;</button>
@@ -236,6 +236,8 @@
                                     <ul class="nice-scroll">'
 
                     document.getElementById("color").style.backgroundColor = $(this).find("Color").text();
+                    document.getElementById("catalogo").href = $(this).find("Catalogo").text();
+                    document.getElementById("ListaPrecios").href = $(this).find("ListaPrecios").text();
 
                     var params = "{ idGenero:'" + $(this).find("idGenero").text() + "' }";
                     $.ajax({

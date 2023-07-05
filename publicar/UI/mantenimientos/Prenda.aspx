@@ -95,9 +95,9 @@
                                         <label for="basic-url">Your vanity URL</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon3" style="cursor:pointer" onclick="Drive()">Convertir a formato Drive</span>
+                                                <span class="input-group-text" id="basic-addon3" style="cursor: pointer" onclick="Drive()">Convertir a formato Drive</span>
                                             </div>
-                                            
+
                                             <input onblur="cambioImagen()" id="txtUrlImg" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                         </div>
                                     </div>
@@ -167,4 +167,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <script src="../style/OwnJS/functions.js"></script>
     <script src="js/Prenda.js"></script>
+    <script>
+        if (localStorage.getItem('Usuario') != "1") {
+            window.location.href = "../inicio/inicio.aspx";
+        }
+    </script>
 </asp:Content>

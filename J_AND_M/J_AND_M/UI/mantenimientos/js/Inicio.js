@@ -48,6 +48,9 @@ function cargarInicial() {
 
                         document.getElementById("imagenCorrusel1").src = $(this).find("Imagen_Carrousel_1").text();
                         document.getElementById("imagenCorrusel2").src = $(this).find("Imagen_Carrousel_2").text();
+
+                        document.getElementById("txtCatalogo").value = $(this).find("Catalogo").text();
+                        document.getElementById("txtListaPrecios").value = $(this).find("ListaPrecios").text();
                     })
 
             },
@@ -78,6 +81,8 @@ function btnAccept() {
     var Imagen_Carrousel_1 = document.getElementById("txtImagenCorrusel1").value;
     var Imagen_Carrousel_2 = document.getElementById("txtImagenCorrusel2").value;
     var ColorCategoria = document.getElementById("txtColorCategoria").value;
+    var Catalogo = document.getElementById("txtCatalogo").value;
+    var ListaPrecios = document.getElementById("txtListaPrecios").value;
 
         spinner.show();
         setTimeout(function () {
@@ -97,7 +102,9 @@ function btnAccept() {
                 ImgRuta3: ImgRuta3,
                 Imagen_Carrousel_1: Imagen_Carrousel_1,
                 Imagen_Carrousel_2: Imagen_Carrousel_2,
-                ColorCategoria: ColorCategoria
+                ColorCategoria: ColorCategoria,
+                Catalogo: Catalogo,
+                ListaPrecios: ListaPrecios
             };
 
             $.ajax({

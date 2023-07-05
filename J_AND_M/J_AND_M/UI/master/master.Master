@@ -213,7 +213,7 @@ body{
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <!-- wsp button -->
-    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -59px; right: 27px;"
+    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; top: 152px; left: 23px;"
         target="_blank">Contactar al distribuidor</a>
     <a href="https://wa.me/50686321956" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
             <!-- Js Plugins -->
@@ -231,7 +231,6 @@ body{
 </body>
 
 <script>
-    console.log(localStorage.getItem('Usuario') )
     if (localStorage.getItem('Usuario') == "1") {
         document.getElementById("divMantenimientos").style.visibility = "visible";
         document.getElementById("divMantenimientos2").style.visibility = "visible";

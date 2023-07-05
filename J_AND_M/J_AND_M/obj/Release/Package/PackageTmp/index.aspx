@@ -311,23 +311,11 @@
             margin-top: -1px;
         }
 
-        .btn-signup {
-            float: left;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            text-align: center;
-            color: #ffffff;
-            padding-top: 8px;
-            width: 100%;
-            height: 35px;
-            border: none;
-            border-radius: 20px;
-            margin-top: 23px;
-            background-color: #1059FF;
+        body, html {
+            height: 100%;
         }
 
-        .btn-signin {
+        .btn-signin, .btn-cambiar {
             float: left;
             padding-top: 8px;
             width: 100%;
@@ -544,7 +532,9 @@
         }
     </style>
 </head>
-<body>
+<body style="background-image: url('https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); /* full height */
+  height: 100%; /* center and scale the image nicely */
+  background-position: center; background-repeat: no-repeat; background-size: cover;">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
     <!-- Page Preloder -->
     <div id="preloder">
@@ -552,43 +542,43 @@
     </div>
     <div id="loader">
         <div class="centerProgress d-flex justify-content-between d-flex align-items-center">
-            <asp:Image ID="Image2" runat="server" ImageUrl="~/UI/style/img/loading.gif" />
+            <asp:Image ID="Image2" runat="server" ImageUrl="~/UI/style/img/loading.gif" Style="width: 100%" />
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                        <div class="frame">
-            <div class="nav">
-                <ul class="links">
-                    <li class="signin-active"><a class="btn">Login</a></li>
-                    <li class="signup-inactive"><a class="btn">Contraseña</a></li>
-                </ul>
-            </div>
-            <div ng-app="" ng-init="checked = false">
-                <div class="form-signin">
-                    <label for="username">Nombre de Usuario o Email</label>
-                    <input class="form-styling" type="text" name="username" placeholder="usuario@gmail.com" id="pUsername" required="required" data-placement="right" data-content="Este campo es requerido." />
-                    <label for="password">Contraseña</label>
-                    <input class="form-styling" type="password" name="Contraseña" placeholder="" id="pPassword" required="required" data-placement="right" data-content="Este campo es requerido." />
-                    <div class="btn-animate">
-                        <input type="button" class="btn-signin" value="Iniciar Sesión" id="btnLogin" style="background-color: darkblue" />
+                <div class="frame">
+                    <div class="nav">
+                        <ul class="links">
+                            <li class="signin-active"><a class="btn">Login</a></li>
+                            <li class="signup-inactive"><a class="btn">Contraseña</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="form-signup">
-                    <label for="fullname">Nombre Usuario</label>
-                    <input class="form-styling" type="text" name="NombreUsuario" placeholder="" />
-                    <label for="email">Email</label>
-                    <input class="form-styling" type="text" name="email" placeholder="" />
-                    <label for="password">Contraseña</label>
-                    <input class="form-styling" type="text" name="Contraseña" placeholder="" />
-                    <label for="confirmpassword">Confirmar Contraseña</label>
-                    <input class="form-styling" type="text" name="ConfirmarContraseña" placeholder="" />
-                    <input type="button" class="btn-signin" value="Cambiar Contraseña" onclick="sendEmail" style="background-color: darkblue" />
-                </div>
-            </div>
+                    <div ng-app="" ng-init="checked = false">
+                        <div class="form-signin">
+                            <label for="username">Nombre de Usuario o Email</label>
+                            <input class="form-styling" type="text" name="username" placeholder="usuario@gmail.com" id="pUsername" required="required" data-placement="right" data-content="Este campo es requerido." />
+                            <label for="password">Contraseña</label>
+                            <input class="form-styling" type="password" name="Contraseña" placeholder="" id="pPassword" required="required" data-placement="right" data-content="Este campo es requerido." />
+                            <div class="btn-animate">
+                                <input type="button" class="btn-signin" value="Iniciar Sesión" id="btnLogin" style="background-color: darkblue" />
+                            </div>
+                        </div>
+                        <div class="form-signup">
+                            <label for="fullname">Nombre Usuario</label>
+                            <input class="form-styling" type="text" name="NombreUsuario" id="nombreUsuario" placeholder="" />
+                            <label for="email">Email</label>
+                            <input class="form-styling" type="text" name="email" id="email" placeholder="" />
+                            <label for="password">Contraseña</label>
+                            <input class="form-styling" type="password" name="Contraseña" id="contrasena" placeholder="" />
+                            <label for="confirmpassword">Confirmar Contraseña</label>
+                            <input class="form-styling" type="password" name="ConfirmarContraseña" id="confContrasena" placeholder="" />
+                            <input type="button" id="btnCambiarContrasena" class="btn-cambiar" value="Cambiar Contraseña" style="background-color: darkblue" />
+                        </div>
+                    </div>
 
-        </div>
+                </div>
             </div>
         </div>
 
@@ -691,12 +681,15 @@
                         })
                     }
                     else {
-                        $('#pUsername').popover('enable');
-                        $('#pUsername').popover('toggle');
-                        setTimeout(function () {
-                            $('#pUsername').popover('toggle');
-                            $('#pUsername').popover('disable');
-                        }, 2000);
+                        swal({
+                            text: "Debe digitar el nombre del usuario",
+                            type: "error",
+                            icon: "error",
+                            time: 3000,
+                            buttons: {
+                                confirm: true,
+                            }
+                        })
                         spinner.hide();
                     }
                 }, 500);
@@ -719,6 +712,115 @@
             })
             spinner.hide();
         };
+
+        $(function () {
+            $(".btn-cambiar").click(function () {
+                spinner.show();
+                setTimeout(function () {
+
+                    let nombreUsuario = document.getElementById("nombreUsuario").value;
+                    let email = document.getElementById("email").value;
+                    let contrasena = document.getElementById("contrasena").value;
+                    let confContrasena = document.getElementById("confContrasena").value;
+                    if (nombreUsuario.trim() != "" && email.trim() != "" && contrasena.trim() != "" && confContrasena.trim() != "") {
+
+                        if (contrasena != confContrasena) {
+                            swal({
+                                text: "La contraseñas digitadas no son iguales",
+                                type: "error",
+                                icon: "error",
+                                time: 3000,
+                                buttons: {
+                                    confirm: true,
+                                }
+                            })
+                            spinner.hide();
+                        } else {
+                            let params = {
+                                NombreUsuario: nombreUsuario,
+                                Email: email
+                            };
+                            $.ajax({
+                                type: "POST",
+                                url: 'index.aspx/RevisarUsuario',
+                                data: JSON.stringify(params),
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: true,
+                                success: function (data) {
+                                    console.log(data.d)
+                                    if (data.d != "") {
+                                        let params2 = {
+                                            NombreUsuario: nombreUsuario,
+                                            Email: email,
+                                            Contrasenna: contrasena
+                                        };
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: 'index.aspx/CambiarContrasenna',
+                                            data: JSON.stringify(params2),
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            async: true,
+                                            success: function () {
+
+                                                swal({
+                                                    text: "Se ha cambiado la contraseña correctamente",
+                                                    type: "success",
+                                                    icon: "success",
+                                                    time: 3000,
+                                                    buttons: {
+                                                        confirm: true,
+                                                    }
+                                                })
+                                                document.getElementById("nombreUsuario").value = "";
+                                                document.getElementById("email").value = "";
+                                                document.getElementById("contrasena").value = "";
+                                                document.getElementById("confContrasena").value = "";
+
+                                            },
+                                            error: function (result) {
+                                                alert("Error");
+                                            }
+                                        })
+
+                                        spinner.hide();
+                                    } else {
+                                        swal({
+                                            text: "El usuario o el email son incorrectos",
+                                            type: "error",
+                                            icon: "error",
+                                            time: 3000,
+                                            buttons: {
+                                                confirm: true,
+                                            }
+                                        })
+                                        spinner.hide();
+                                    }
+
+                                },
+                                error: function (result) {
+                                    alert("Error");
+                                }
+                            })
+                        }
+                    } else {
+                        swal({
+                            text: "Debe rellenar todos los campos",
+                            type: "error",
+                            icon: "error",
+                            time: 3000,
+                            buttons: {
+                                confirm: true,
+                            }
+                        })
+                        spinner.hide();
+                    }
+                }, 500);
+
+            });
+        });
 
     </script>
 </body>

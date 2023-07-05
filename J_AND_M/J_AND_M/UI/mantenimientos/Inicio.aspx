@@ -63,10 +63,18 @@
                                 </div>
                             </div>
                             <hr />
-                            <div class="row col-12 col-lg-4">
-                                <div class="form-group">
-                                    <label>Color de categroías</label>
+                            <div class="row">
+                                <div class="form-group col-12 col-lg-4">
+                                    <label>Color de categorías</label>
                                     <input id="txtColorCategoria" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                </div>
+                                <div class="form-group col-12 col-lg-4">
+                                    <label>Catálogo de ropa</label>
+                                    <input id="txtCatalogo" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                </div>
+                                <div class="form-group col-12 col-lg-4">
+                                    <label>Lista de precios</label>
+                                    <input id="txtListaPrecios" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                 </div>
                             </div>
                             <hr />
@@ -129,5 +137,9 @@
         </div>
     </div>
     <script src="js/Inicio.js"></script>
-
+    <script>
+        if (localStorage.getItem('Usuario') != "1") {
+            window.location.href = "../inicio/inicio.aspx";
+        }
+    </script>
 </asp:Content>

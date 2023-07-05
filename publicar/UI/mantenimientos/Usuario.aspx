@@ -4,7 +4,7 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="../style/OwnJS/myStyle.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -201,68 +201,9 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="../style/OwnJS/functions.js"></script>
     <script src="js/Usuario.js"></script>
-
-    <script type="text/javascript">
-
-        var spinner = $("#loader");
-
-        $("body").on("click", "#btnExcel", function () {
-            spinner.show();
-            setTimeout(function () {
-                $("[id*=gvTable]").table2excel({
-                    // exclude CSS class 
-                    exclude: ".noExl",
-                    Description: "Worksheet Description",
-                    fileDescription: "Reporte", //do not include extension 
-                    exclude_inputs: true
-                });
-                spinner.hide();
-            }, 500);
-        });
-
-
-
-        $("body").on("click", "#btnPdf", function () {
-            spinner.show();
-            setTimeout(function () {
-                const doc = new jsPDF("p", "mm", [497, 480]);
-                var img = new Image();
-                var src = "../style/img/logoNombrePDF.png";
-                img.src = src;
-                doc.addImage(img, "png", 14, 8, 0, 0);
-                doc.setFontSize(12);
-                doc.text(73, 19, "Volcafe Costa Rica");
-                doc.text(73, 24, "Member of ED F MAN Coffee Division");
-                doc.text(73, 29, "P.O. Boc 8-4090-1000 San José, Costa Rica");
-                doc.text(73, 34, "Central Telefónica: 2261 6666 Fax: 2261 5555");
-                doc.setFontSize(18);
-
-                doc.text(215, 27, "");
-                var currentDate = new Date();
-
-                doc.setFontSize(14);
-                doc.text(430, 14, "Fecha Consulta");
-
-                doc.text(430, 30, "Hora Consulta");
-
-                var date = currentDate.getDate();
-                var month = currentDate.getMonth(); //Be careful! January is 0 not 1
-                var year = currentDate.getFullYear();
-
-                var dateString = (month + 1) + "/" + date + "/" + year;
-
-                var hora = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-
-                doc.text(430, 20, dateString);
-                doc.text(430, 36, hora);
-                doc.autoTable({ html: "#gvTable", startY: 40 });
-                doc.save("Report.pdf");
-
-                spinner.hide();
-            }, 500);
-
-        });
-
-
+    <script>
+        if (localStorage.getItem('Usuario') != "1") {
+            window.location.href = "../inicio/inicio.aspx";
+        }
     </script>
 </asp:Content>

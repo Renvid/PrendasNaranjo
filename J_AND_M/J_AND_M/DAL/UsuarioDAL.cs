@@ -107,5 +107,34 @@ namespace J_AND_M.DAL
             DataSet ds = db.ExecuteReader(comando, "Usuario");
             return ds;
         }
+
+
+        // One 
+        public static DataSet RevisarUsuario(string NombreUsuario, string Email)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("spCheckUsuario");
+
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+            comando.Parameters.AddWithValue("@Email", Email);
+
+            DataSet ds = db.ExecuteReader(comando, "Usuario");
+            return ds;
+        }
+
+        public static void CambiarContrasenna(string NombreUsuario, string Email,string Contrasenna)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("spCambiarContrasenna");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+            comando.Parameters.AddWithValue("@Email", Email);
+            comando.Parameters.AddWithValue("@Contrasenna", Contrasenna);
+
+            db.ExecuteNonQuery(comando);
+        }
     }
 }

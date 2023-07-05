@@ -29,5 +29,26 @@ namespace J_AND_M
                 return ds.GetXml(); 
             }
         }
+
+        [WebMethod]
+        public static string RevisarUsuario(string NombreUsuario, string Email)
+        {
+
+            DataSet ds = DAL.UsuarioDAL.RevisarUsuario(NombreUsuario, Email);
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                return "";
+            }
+            else
+            {
+                return "Existe";
+            }
+        }
+
+        [WebMethod]
+        public static void CambiarContrasenna(string NombreUsuario, string Email, string Contrasenna)
+        {
+            DAL.UsuarioDAL.CambiarContrasenna(NombreUsuario, Email, Contrasenna);
+        }
     }
 }

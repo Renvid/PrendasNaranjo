@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title></title>
     <script src="../style/js/jquery-3.3.1.min.js"></script>
-    <link href="../style/css/select2.min.css" rel="stylesheet" />
     <link href="../style/OwnJS/myStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -85,7 +84,11 @@
             </div>
         </div>
     </div>
-    <script src="../servicios/servicios.js"></script>
     <script src="js/Categoria.js"></script>
+    <script>
+        if (localStorage.getItem('Usuario') != "1") {
+            window.location.href = "../inicio/inicio.aspx";
+        }
+    </script>
 
 </asp:Content>

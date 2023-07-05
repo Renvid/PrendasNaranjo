@@ -119,26 +119,26 @@ ol {
 	width: 55px;
 	height: 55px;
 	line-height: 55px;
-	bottom: 30px;
-	right: 30px;
-	background: #0df053;
-	color: #fff;
+	top: 84px;
+	left: 23px;
+/*	background: #0df053;
+	color: #fff;*/
 	border-radius: 50px;
 	text-align: center;
 	font-size: 30px;
-	box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
+/*	box-shadow: 0px 1px 10px rgb(0,0,0,0.3);
 	opacity: 0.7;
-	filter: grayscale(0.9);
-	transition: 0.6s ease-out;
+	filter: grayscale(0.9);*/
+/*	transition: 0.6s ease-out;*/
 	z-index: 100;
 }
 
-	.wsp:hover {
+/*	.wsp:hover {
 		cursor: pointer;
 		opacity: 1;
 		transform: scale(1.05) rotate(-1.2deg);
 		filter: grayscale(0);
-	} 
+	} */
 
 
 

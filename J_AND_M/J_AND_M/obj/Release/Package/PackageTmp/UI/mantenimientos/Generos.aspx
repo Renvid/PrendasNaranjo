@@ -90,5 +90,9 @@
         </div>
     </div>
     <script src="js/Generos.js"></script>
-
+        <script>
+        if (localStorage.getItem('Usuario') != "1") {
+            window.location.href = "../inicio/inicio.aspx";
+        }
+        </script>
 </asp:Content>
