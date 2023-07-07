@@ -489,10 +489,8 @@
 
         function abrirModal(url) {
             let comillaSimplre = "'";
-            let cuerpo = '<div class="deal" style="background-image: url(' + comillaSimplre + '' + url + '' + comillaSimplre + ')">\
-                        <div class="deal-bottom">\
-                            <a href="https://wa.me/50686318997" class="btn hover-up" style="color:red">Contáctanos</a>\
-                        </div>\
+            let cuerpo = '<div class="deal">\
+                        <image src="' + url + '">\
                     </div>';
             document.getElementById("ModalBody").innerHTML = cuerpo;
             $("#myModal").modal("toggle");
