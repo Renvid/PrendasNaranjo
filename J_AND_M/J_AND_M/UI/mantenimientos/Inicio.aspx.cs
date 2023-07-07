@@ -32,10 +32,10 @@ namespace J_AND_M.UI.mantenimientos
         //Funcion para crear o actualizar el formulario 
         [WebMethod]
         public static void NewUpdate(int Titulo1, string Titulo2, string Texto, string Titulo1_1, string Titulo2_2, string Texto_1, string SubTexto1, string ImgRuta1, string SubTexto2, string ImgRuta2, string SubTexto3, string ImgRuta3
-            , string Imagen_Carrousel_1, string Imagen_Carrousel_2, string ColorCategoria)
+            , string Imagen_Carrousel_1, string Imagen_Carrousel_2, string ColorCategoria, string Catalogo, string ListaPrecios)
         {
            DAL.InicioDAL.Update(Titulo1, Titulo2, Texto, Titulo1_1, Titulo2_2, Texto_1, SubTexto1, 
-               ImgRuta1, SubTexto2, ImgRuta2, SubTexto3, ImgRuta3, Imagen_Carrousel_1, Imagen_Carrousel_2, ColorCategoria);
+               ImgRuta1, SubTexto2, ImgRuta2, SubTexto3, ImgRuta3, Imagen_Carrousel_1, Imagen_Carrousel_2, ColorCategoria,Catalogo,ListaPrecios);
         }
 
 

@@ -9,26 +9,13 @@
     <!-- Favicons -->
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 
-    <script src="<%=ResolveClientUrl("~/UI/style/js/webfont.min.js") %>"></script>
-    <script>
-        WebFont.load({
-            google: { "families": ["Lato:300,400,700,900"] },
-            custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['<%=ResolveClientUrl("~/UI/style/css/fonts.min.css") %>'] },
-            active: function () {
-                sessionStorage.fonts = true;
-            }
-        });
-    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="../style/css/all.css" rel="stylesheet" />
     <%--<link href="../style/templateCss/vendor/bootstrap.min.css" rel="stylesheet" />--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <link href="../style/css/basicTemplate.css" rel="stylesheet" />
 
     <%--<link href="../style/css/fontawesome-all.min.css" rel="stylesheet" />--%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,20 +30,18 @@
 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
+    <link rel="stylesheet" href="../style/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/magnific-popup.css" type="text/css">
 
+    <link rel="stylesheet" href="../style/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/style.css" type="text/css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="~/UI/style/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="~/UI/style/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="~/UI/style/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="~/UI/style/css/magnific-popup.css" type="text/css">
-
-    <link rel="stylesheet" href="~/UI/style/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="~/UI/style/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="~/UI/style/css/style.css" type="text/css">
     <style>
         /*NavBar color*/
         .justify-content-lg-between {
@@ -161,7 +146,7 @@ body{
     </div>
     <div id="loader">
         <div class="centerProgress d-flex justify-content-between d-flex align-items-center">
-            <asp:Image ID="Image2" runat="server" ImageUrl="~/UI/style/img/loading.gif" />
+            <asp:Image ID="Image2" runat="server" ImageUrl="../style/img/loading.gif" />
         </div>
     </div>
     <!-- Header Section Begin -->
@@ -222,31 +207,52 @@ body{
 
     </asp:ContentPlaceHolder>
 
-    <!-- Search End -->
 
-    <!-- Js Plugins -->
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery-3.3.1.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/bootstrap.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.nicescroll.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.magnific-popup.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.countdown.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.slicknav.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/mixitup.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/owl.carousel.min.js")%>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/main.js")%>"></script>
+
+
+    <!-- Search End -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <!-- wsp button -->
-    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -59px; right: 27px;"
+    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -63px; right: 23px;"
         target="_blank">Contactar al distribuidor</a>
     <a href="https://wa.me/50686321956" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            <!-- Js Plugins -->
+    <script src="../style/js/jquery-3.3.1.min.js"></script>
+    <script src="../style/js/bootstrap.min.js"></script>
+    <script src="../style/js/jquery.nicescroll.min.js"></script>
+    <script src="../style/js/jquery.magnific-popup.min.js"></script>
+    <script src="../style/js/jquery.countdown.min.js"></script>
+    <script src="../style/js/jquery.slicknav.js"></script>
+    <script src="../style/js/mixitup.min.js"></script>
+    <script src="../style/js/owl.carousel.min.js"></script>
+    <script src="../style/js/main.js"></script>
+
 
 </body>
 
 <script>
-    console.log(localStorage.getItem('Usuario') )
+    $(document).ready(() => {
+        var elements = document.getElementsByTagName('div');
+
+        for (var i = 0; i < elements.length; i++) {
+            console.log(elements[i].innerText)
+            if (elements[i].innerText.includes("Hosted Windows Virtual Server. 2.5GHz CPU, 2GB RAM, 60GB SSD. Try it now for $1")) {
+                elements[i].style.visibility = "hidden";
+                elements[i - 1].style.visibility = "hidden";
+            }
+        }
+        elements = document.getElementsByTagName('a');
+
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].innerText.includes("Web hosting by")) {
+                elements[i].style.visibility = "hidden";
+            }
+        }
+    })
+
     if (localStorage.getItem('Usuario') == "1") {
         document.getElementById("divMantenimientos").style.visibility = "visible";
         document.getElementById("divMantenimientos2").style.visibility = "visible";
@@ -283,24 +289,5 @@ body{
     };
 </script>
 
-
-<%-- 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.dataTables.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/dataTables.bootstrap4.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/dataTables.fixedColumns.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.table2excel.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jspdf.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jspdf.plugin.autotable.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/popper.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/bootstrap/bootstrap.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery-ui.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/jquery.scrollbar.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/sweetalert.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/basicTemplate.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/js/bootstrap-notify.min.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/style/OwnJS/functions.js") %>"></script>
-    <script src="<%=ResolveClientUrl("~/UI/servicios/servicios.js") %>"></script>--%>
 </html>
 

@@ -13,9 +13,6 @@ namespace J_AND_M.UI.mantenimientos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-            }
         }
 
 

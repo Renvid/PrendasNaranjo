@@ -110,6 +110,7 @@
     <Content Include="UI\inicio\inicio.aspx" />
     <Content Include="UI\mantenimientos\Categoria.aspx" />
     <Content Include="UI\mantenimientos\Generos.aspx" />
+    <Content Include="UI\mantenimientos\Inicio.aspx" />
     <Content Include="UI\mantenimientos\js\Categoria.js" />
     <Content Include="UI\mantenimientos\js\Categorias.js" />
     <Content Include="UI\mantenimientos\js\Generos.js" />
@@ -118,7 +119,6 @@
     <Content Include="UI\mantenimientos\js\Usuario.js" />
     <Content Include="UI\mantenimientos\Prenda.aspx" />
     <Content Include="UI\mantenimientos\Usuario.aspx" />
-    <Content Include="UI\mantenimientos\Inicio.aspx" />
     <Content Include="UI\style\css\bootstrap.min.css" />
     <Content Include="UI\style\css\elegant-icons.css" />
     <Content Include="UI\style\css\font-awesome.min.css" />
@@ -310,6 +310,13 @@
     <Compile Include="UI\mantenimientos\Generos.aspx.designer.cs">
       <DependentUpon>Generos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\mantenimientos\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\mantenimientos\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\mantenimientos\Prenda.aspx.cs">
       <DependentUpon>Prenda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -323,13 +330,6 @@
     </Compile>
     <Compile Include="UI\mantenimientos\Usuario.aspx.designer.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\mantenimientos\Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\mantenimientos\Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\master\master.Master.cs">
       <DependentUpon>master.Master</DependentUpon>
@@ -351,6 +351,10 @@
     <Content Include="UI\style\fonts\fontawesome-webfont.woff" />
     <Content Include="UI\style\fonts\fontawesome-webfont.woff2" />
     <Content Include="UI\style\fonts\FontAwesome.otf" />
+    <Content Include="UI\style\js\bootstrap\bootstrap.bundle.js.map" />
+    <Content Include="UI\style\js\bootstrap\bootstrap.bundle.min.js.map" />
+    <Content Include="UI\style\js\bootstrap\bootstrap.js.map" />
+    <Content Include="UI\style\js\bootstrap\bootstrap.min.js.map" />
     <Content Include="UI\style\sass\style.scss" />
     <Content Include="UI\style\sass\_about.scss" />
     <Content Include="UI\style\sass\_base.scss" />
@@ -378,10 +382,6 @@
     <Content Include="UI\style\Source\Magnific-Popup-master.zip" />
     <Content Include="UI\style\Source\OwlCarousel2-2.3.4.zip" />
     <Content Include="UI\style\Source\SlickNav-master.zip" />
-    <Content Include="UI\style\js\bootstrap\bootstrap.bundle.js.map" />
-    <Content Include="UI\style\js\bootstrap\bootstrap.bundle.min.js.map" />
-    <Content Include="UI\style\js\bootstrap\bootstrap.js.map" />
-    <Content Include="UI\style\js\bootstrap\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
