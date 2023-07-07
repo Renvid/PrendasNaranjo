@@ -394,6 +394,18 @@
             </div>
         </div>
     </div>
+
+    <!-- Image Modal -->
+    <div class="modal custom-modal" id="myModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body" id="ModalBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Vendor JS-->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
@@ -431,40 +443,39 @@
             const data = await tok.json();
 
             let cuerpo = ''
+            let comillaSimplre = "'";
+
 
             data.map(datos => {
                 let color = "";
-                if(datos.Categoria == "Nuevo"){
-                    color="new";
-                }else{
-                    color="hot";
+                if (datos.Categoria == "Nuevo") {
+                    color = "new";
+                } else {
+                    color = "hot";
                 }
-
                 cuerpo += '<div class="col-lg-3 col-md-4 col-12 col-sm-6">\
                         <div class="product-cart-wrap mb-30">\
                             <div class="product-img-action-wrap">\
                                 <div class="product-img product-img-zoom">\
-                                    <a href="'+datos.URL+'" download target="_blank">\
-                                        <img class="default-img" src="'+datos.URL+'" alt="">\
-                                    </a>\
+                                    <img onClick="abrirModal(\''+ datos.URL + '\')" class="default-img" src="' + datos.URL + '" alt="">\
                                 </div>\
                                 <div class="product-badges product-badges-position product-badges-mrg">\
-                                    <span class="'+color+'">'+datos.Categoria+'</span>\
+                                    <span class="'+ color + '">' + datos.Categoria + '</span>\
                                 </div>\
                             </div>\
                             <div class="product-content-wrap">\
                                 <div class="product-category">\
                                     <a href="#">J&M Boutique</a>\
                                 </div>\
-                                <h2><a href="shop-product-right.html">'+datos.DetallePrenda+'</a></h2>\
+                                <h2><a href="shop-product-right.html">'+ datos.DetallePrenda + '</a></h2>\
                                 <div class="rating-result">\
                                 </div>\
                                 <div class="product-price">\
-                                    <span>'+datos.Precio+' </span>\
+                                    <span>'+ datos.Precio + ' </span>\
                                 </div>\
                                 <div class="product-action-1 show">\
                                     <a aria-label="Descargar" class="action-btn hover-up"\
-                                        href="'+datos.URL+'" download target="_blank"><i\
+                                        href="'+ datos.URL + '" download target="_blank"><i\
                                             class="fi-rs-download"></i></a>\
                                 </div>\
                             </div>\
@@ -475,6 +486,20 @@
 
             document.getElementById("divProductos").innerHTML = cuerpo;
         }
+
+        function abrirModal(url) {
+            let comillaSimplre = "'";
+            let cuerpo = '<div class="deal" style="background-image: url(' + comillaSimplre + '' + url + '' + comillaSimplre + ')">\
+                        <div class="deal-bottom">\
+                            <a href="https://wa.me/50686318997" class="btn hover-up" style="color:red">Contáctanos</a>\
+                        </div>\
+                    </div>';
+            document.getElementById("ModalBody").innerHTML = cuerpo;
+            $("#myModal").modal("toggle");
+
+
+        }
+
     </script>
 
 
