@@ -596,8 +596,26 @@
 
     <script>
 
+
         localStorage.setItem('Usuario', null);
         $(document).ready(function () {
+            var elements = document.getElementsByTagName('div');
+
+            for (var i = 0; i < elements.length; i++) {
+                console.log(elements[i].innerText)
+                if (elements[i].innerText.includes("Hosted Windows Virtual Server. 2.5GHz CPU, 2GB RAM, 60GB SSD. Try it now for $1")) {
+                    elements[i].style.visibility = "hidden";
+                    elements[i - 1].style.visibility = "hidden";
+                }
+            }
+            elements = document.getElementsByTagName('a');
+
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].innerText.includes("Web hosting by")) {
+                    elements[i].style.visibility = "hidden";
+                }
+            }
+
             $('#pUsername').keypress(function (e) {
                 if (e.keyCode == 13)
                     $('#btnLogin').click();

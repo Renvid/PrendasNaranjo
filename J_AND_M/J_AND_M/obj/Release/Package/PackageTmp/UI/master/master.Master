@@ -5,6 +5,9 @@
 <html>
 <head runat="server">
     <title>X-MONT Distribuidora</title>
+    <link href="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" rel="apple-touch-icon" />
+    <link href="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" rel="icon" sizes="192x192" />
+    <link href="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" rel="icon" sizes="128x128" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!-- Favicons -->
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -156,7 +159,7 @@ body{
                 <div class="col-lg-2 col-md-3">
                     <div class="header__logo">
                         <a href="../inicio/inicio.aspx">
-                            <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width:60%"></a>
+                            <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width: 60%"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -204,8 +207,10 @@ body{
 
     <!-- Header Section End -->
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
     </asp:ContentPlaceHolder>
+
+
+
 
     <!-- Search End -->
 
@@ -213,10 +218,10 @@ body{
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <!-- wsp button -->
-    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; top: 152px; left: 23px;"
+    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -63px; right: 23px;"
         target="_blank">Contactar al distribuidor</a>
     <a href="https://wa.me/50686321956" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
-            <!-- Js Plugins -->
+    <!-- Js Plugins -->
     <script src="../style/js/jquery-3.3.1.min.js"></script>
     <script src="../style/js/bootstrap.min.js"></script>
     <script src="../style/js/jquery.nicescroll.min.js"></script>
@@ -231,6 +236,25 @@ body{
 </body>
 
 <script>
+    $(document).ready(() => {
+        var elements = document.getElementsByTagName('div');
+
+        for (var i = 0; i < elements.length; i++) {
+            console.log(elements[i].innerText)
+            if (elements[i].innerText.includes("Hosted Windows Virtual Server. 2.5GHz CPU, 2GB RAM, 60GB SSD. Try it now for $1")) {
+                elements[i].style.visibility = "hidden";
+                elements[i - 1].style.visibility = "hidden";
+            }
+        }
+        elements = document.getElementsByTagName('a');
+
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].innerText.includes("Web hosting by")) {
+                elements[i].style.visibility = "hidden";
+            }
+        }
+    })
+
     if (localStorage.getItem('Usuario') == "1") {
         document.getElementById("divMantenimientos").style.visibility = "visible";
         document.getElementById("divMantenimientos2").style.visibility = "visible";
