@@ -1,0 +1,321 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="J_AND_M.UI.master.master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>X-MONT Distribuidora</title>
+    <link href="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" rel="apple-touch-icon" />
+    <link href="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" rel="icon" sizes="192x192" />
+    <link href="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" rel="icon" sizes="128x128" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <!-- Favicons -->
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <%--<link href="../style/templateCss/vendor/bootstrap.min.css" rel="stylesheet" />--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
+    <%--<link href="../style/css/fontawesome-all.min.css" rel="stylesheet" />--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <link rel="stylesheet" href="../style/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/magnific-popup.css" type="text/css">
+
+    <link rel="stylesheet" href="../style/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../style/css/style.css" type="text/css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /*NavBar color*/
+        .justify-content-lg-between {
+            background-color: #17202A;
+        }
+
+        #loader {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #FFF;
+            filter: alpha(opacity=60);
+            opacity: 0.75;
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .centerProgress {
+            width: 285px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+            .centerProgress img {
+                width: 100%;
+                border-radius: 10px;
+                z-index: 100004;
+            }
+
+        .page-item.active .page-link {
+            background-color: #f75c08 !important;
+            border-color: #f75c08 !important;
+        }
+
+        .page-item.active .page-link {
+            background-color: #21618C !important;
+            border-color: #21618C !important;
+        }
+
+        .ul.li.a {
+            color: white
+        }
+
+
+        /* *{
+}
+
+body{
+} */
+
+
+        .nav_links {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            top: 80px;
+            right: 0;
+            background-color: black;
+            display: grid;
+            place-items: center;
+            clip-path: circle(0% at top left);
+            transition: clip-path .4s;
+            z-index: 100;
+        }
+
+        .nav_icon {
+            height: 40px;
+        }
+
+
+
+        .nav_link {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav_links:target {
+            clip-path: circle(150% at top left);
+        }
+
+        .btn-primary {
+            background-color: #144272;
+            border-color: black;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <div id="loader">
+        <div class="centerProgress d-flex justify-content-between d-flex align-items-center">
+            <asp:Image ID="Image2" runat="server" ImageUrl="../style/img/loading.gif" />
+        </div>
+    </div>
+    <!-- Header Section Begin -->
+    <header style="background-color: black">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3">
+                    <div class="header__logo">
+                        <a href="../inicio/inicio.aspx" id="imgLogo">
+                            <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width: 60%"></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="../inicio/inicio.aspx" style="color: white">Inicio</a></li>
+                            <li><a href="../Categorias/Categorias.aspx" style="color: white">Categorías</a></li>
+                            <li><a href="../../index.aspx" style="color: white">Inicia sesión</a></li>
+                            <li><a href="#" style="color: white" onclick="cerrarSesion()">Cerrar sesión</a></li>
+                            <li id="divMantenimientos"><a href="#" style="color: white">Mantenimientos</a>
+                                <ul class="dropdown">
+                                    <li><a href="../mantenimientos/Inicio.aspx" style="color: white">Inicio</a></li>
+                                    <li><a href="../mantenimientos/Categoria.aspx" style="color: white">Categorias</a></li>
+                                    <li><a href="../mantenimientos/Generos.aspx" style="color: white">Generos</a></li>
+                                    <li><a href="../mantenimientos/Prenda.aspx" style="color: white">Productos</a></li>
+                                    <li><a href="../mantenimientos/Usuario.aspx" style="color: white">Usuarios</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="canvas__open">
+                    <nav class="nav">
+                        <h1 class="nav_logo"></h1>
+                        <a href="#menu" class="nav_target">
+                            <i class="fa fa-bars" style="color: white"></i>
+                        </a>
+                        <div class="nav_links" id="menu">
+                            <a href="../inicio/inicio.aspx" style="color: white">Inicio</a>
+                            <a href="../Categorias/Categorias.aspx" style="color: white">Categorías</a>
+                            <a href="../../index.aspx" style="color: white">Inicia sesión</a>
+                            <a href="#" style="color: white" onclick="cerrarSesion()">Cerrar sesión</a>
+                            <a href="#" class="nav_link">❌</a>
+
+
+
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section End -->
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+
+    <!-- Search End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <!-- wsp button -->
+    <a href="#" id="aContactar" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -63px; right: 23px;"
+        target="_blank">Contactar al distribuidor</a>
+    <a href="#" id="aWhats" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+    <!-- Js Plugins -->
+    <script src="../style/js/jquery-3.3.1.min.js"></script>
+    <script src="../style/js/bootstrap.min.js"></script>
+    <script src="../style/js/jquery.nicescroll.min.js"></script>
+    <script src="../style/js/jquery.magnific-popup.min.js"></script>
+    <script src="../style/js/jquery.countdown.min.js"></script>
+    <script src="../style/js/jquery.slicknav.js"></script>
+    <script src="../style/js/mixitup.min.js"></script>
+    <script src="../style/js/owl.carousel.min.js"></script>
+    <script src="../style/js/main.js"></script>
+
+
+</body>
+
+<script>
+    $(document).ready(() => {
+        var elements = document.getElementsByTagName('div');
+
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].innerText.includes("Hosted Windows Virtual Server. 2.5GHz CPU, 2GB RAM, 60GB SSD. Try it now for $1")) {
+                elements[i].style.visibility = "hidden";
+                elements[i - 1].style.visibility = "hidden";
+            }
+        }
+        elements = document.getElementsByTagName('a');
+
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].innerText.includes("Web hosting by")) {
+                elements[i].style.visibility = "hidden";
+            }
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "../mantenimientos/Inicio.aspx/AllTable",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var xmlDoc = $.parseXML(data.d);
+                var xml = $(xmlDoc);
+                var info = xml.find("Inicio");
+
+
+                $(info).each(function () {
+                    document.getElementById("aContactar").href = "https://wa.me/506"+$(this).find("Telefono").text()
+                    document.getElementById("aWhats").href = "https://wa.me/506" +$(this).find("Telefono").text()
+
+                })
+
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        })
+
+    })
+
+    if (localStorage.getItem('Usuario') == "1") {
+        document.getElementById("imgLogo").style.visibility = "visible";
+        document.getElementById("divMantenimientos").style.visibility = "visible";
+        document.getElementById("divMantenimientos2").style.visibility = "visible";
+    } else {
+        document.getElementById("imgLogo").style.visibility = "hidden";
+        document.getElementById("divMantenimientos").style.visibility = "hidden";
+        document.getElementById("divMantenimientos2").style.visibility = "hidden";
+    }
+
+    function cerrarSesion() {
+        localStorage.setItem('Usuario', null);
+        location.reload();
+    }
+
+    //Mensajes de confirmacion de acciones para el usuario
+
+    function New() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se ha creado con éxito!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    };
+
+    function Update() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se ha actualizado con éxito!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    };
+</script>
+
+</html>
+

@@ -8,6 +8,7 @@
             }
         }
     </style>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Hero Section Begin -->
@@ -116,10 +117,9 @@
     <!-- Footer Section End -->
 
 
-
+    <script src="../servicios/servicios.js"></script>
 
     <script type="text/javascript">
-        console.log(localStorage.getItem('Usuario'))
 
         var TipoUsuario = "normal";
 
@@ -128,9 +128,8 @@
         } else {
             TipoUsuario = "normal";
         }
-        console.log(TipoUsuario)
 
-        $(document).ready(() => {
+        $(document).ready(async () => {
 
             $("#carouselPrincipal").owlCarousel({
                 nav: true,
@@ -159,7 +158,7 @@
                                 <div class="col-xl-5 col-lg-7 col-md-8">\
                                     <div class="hero__text">\
                                         <h2>'+ $(this).find("Titulo1_1").text() + '</h2>\
-                                        <p >'+ $(this).find("Texto").text() + '</p>\
+                                        <h4>'+ $(this).find("Texto").text() + '</h4>\
                                     </div>\
                                 </div>\
                             </div>\
@@ -172,8 +171,8 @@
                             <div class="row">\
                                 <div class="col-xl-5 col-lg-7 col-md-8">\
                                     <div class="hero__text">\
-                                        <h2>'+ $(this).find("Titulo2").text() + '</h2>\
-                                        <p>'+ $(this).find("Texto_1").text() + '</p>\
+                                        <h1>'+ $(this).find("Titulo2").text() + '</h1>\
+                                        <h3>'+ $(this).find("Texto_1").text() + '</h3>\
                                     </div>\
                                 </div>\
                             </div>\
@@ -231,7 +230,7 @@
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
-                            <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
+                            <a href="#">'+ $(this).find("Nombre").text() + '</a>\
                             '+ Precio + '\
                             </center>\
                         </div>\
@@ -273,7 +272,7 @@
                         <div class="product__item__text">\
                         <center>\
                             <h6>'+ $(this).find("Nombre").text() + '</h6>\
-                            <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
+                            <a href="#">'+ $(this).find("Nombre").text() + '</a>\
                             '+ Precio + '\
                             </center>\
                         </div>\

@@ -36,6 +36,7 @@ function fillTable() {
                         cuerpo += "<tr  alt='Editar' title='Editar'  style='cursor: pointer;' id='" + $(this).find("idCategoria").text() + "' onClick='btnEdit_click(this.id)' >\
 <td>" + $(this).find("Nombre").text() + "</td> \
 <td>" + Activo + "</td> \
+<td>" + $(this).find("Catalogo").text() + "</td> \
 </tr>";
                     })
                 }
@@ -58,6 +59,7 @@ function fillTable() {
 //Funciones para crear o actualizar el formulario
 function btnNew() {
     document.getElementById("txtNombre").value = "";
+    document.getElementById("txtCatalogo").value = "";
     document.getElementById("cbActivo").checked = true;
     document.getElementById("titleModal").innerHTML = "Nuevo";
     idCategoria = 0;
@@ -83,6 +85,7 @@ function btnEdit_click(clicked_id) {
 
             $(info).each(function () {
                 document.getElementById("txtNombre").value = $(this).find("Nombre").text();
+                document.getElementById("txtCatalogo").value = $(this).find("Catalogo").text();
 
                 if ($(this).find("Activo").text() == 1)
                     document.getElementById("cbActivo").checked = true
@@ -131,6 +134,8 @@ function btnAccept() {
     var Activo = "0";
     if (document.getElementById("cbActivo").checked == true)
         Activo = "1";
+
+    var Catalogo = document.getElementById("txtCatalogo").value;
     if (validate()) {
         spinner.show();
         setTimeout(function () {
@@ -138,7 +143,8 @@ function btnAccept() {
             var params = {
                 idCategoria: idCategoria,
                 Nombre: Nombre,
-                Activo: Activo
+                Activo: Activo,
+                Catalogo: Catalogo
             };
 
             $.ajax({

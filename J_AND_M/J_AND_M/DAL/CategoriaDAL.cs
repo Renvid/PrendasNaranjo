@@ -11,7 +11,7 @@ namespace J_AND_M.DAL
     public class CategoriaDAL
     {
         // Create 
-        public static void New(string Nombre, int Activo)
+        public static void New(string Nombre, int Activo,string Catalogo)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
 
@@ -20,12 +20,13 @@ namespace J_AND_M.DAL
 
             comando.Parameters.AddWithValue("@Nombre", Nombre);
             comando.Parameters.AddWithValue("@Activo", Activo);
+            comando.Parameters.AddWithValue("@Catalogo", Catalogo);
 
             db.ExecuteNonQuery(comando);
         }
 
         // Update 
-        public static void Update(int idCategoria, string Nombre, int Activo)
+        public static void Update(int idCategoria, string Nombre, int Activo, string Catalogo)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
 
@@ -35,6 +36,7 @@ namespace J_AND_M.DAL
             comando.Parameters.AddWithValue("@idCategoria", idCategoria);
             comando.Parameters.AddWithValue("@Nombre", Nombre);
             comando.Parameters.AddWithValue("@Activo", Activo);
+            comando.Parameters.AddWithValue("@Catalogo", Catalogo);
 
             db.ExecuteNonQuery(comando);
         }

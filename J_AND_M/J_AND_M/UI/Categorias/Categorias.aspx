@@ -236,7 +236,6 @@
                                     <ul class="nice-scroll">'
 
                     document.getElementById("color").style.backgroundColor = $(this).find("Color").text();
-                    document.getElementById("catalogo").href = $(this).find("Catalogo").text();
                     document.getElementById("ListaPrecios").href = $(this).find("ListaPrecios").text();
 
                     var params = "{ idGenero:'" + $(this).find("idGenero").text() + "' }";
@@ -253,7 +252,6 @@
                             var info = xml.find("Categoria");
 
                             $(info).each(function () {
-
                                 cuerpo += '<li style="cursor:pointer"><a onclick="PrendasPorCategoria(' + $(this).find("idGenero").text() + ',' + $(this).find("idCategoria").text() + ')">' + $(this).find("NombreCategoria").text() + '</a></li>'
                             })
                             cuerpo += '</ul>\
@@ -292,11 +290,13 @@
                         var xml = $(xmlDoc);
                         var info = xml.find("Prendas");
                         var cuerpo = "";
-                        console.log(info)
 
                         myArray = [];
 
                         $(info).each(function () {
+                            console.log($(this).find("Catalogo").text())
+                            document.getElementById("catalogo").href = $(this).find("Catalogo").text();
+
 
                             var Precio = "";
                             if (TipoUsuario == "admin") {
@@ -320,7 +320,7 @@
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ Nombre + '</h6>\
-                            <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
+                            <a href="#" target="_blank"><h6>'+ Nombre + '</h6></a>\
                             '+ Precio + '\
                             </center>\
                         </div>\
@@ -357,7 +357,6 @@
                         var xml = $(xmlDoc);
                         var info = xml.find("Categoria");
                         var cuerpo = "";
-                        console.log(info)
                         $(info).each(function () {
 
                             var Precio = "";
@@ -380,7 +379,7 @@
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ Nombre + '</h6>\
-                            <a href="https://wa.me/50686321956" target="_blank"><i class="fa fa-whatsapp"></i></a>\
+                            <a href="#" target="_blank"><h6>'+ Nombre + '</h6></a>\
                             '+ Precio + '\
                             </center>\
                         </div>\

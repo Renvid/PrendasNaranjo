@@ -309,51 +309,83 @@
         <section class="featured section-padding position-relative">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0"
+                        onclick="DetallesServicios('El costo del envío se calcula según la zona, entregas en Palmares o San Ramón son gratuitas') ">
                         <div class="banner-features wow fadeIn animated hover-up">
                             <img src="assets/imgs/theme/icons/feature-1.png" alt="">
-                            <h4 class="bg-1">Envíos por correo</h4>
+                            <h4 class="bg-1">Envíos por correo de CR</h4>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0"
+                        onclick="DetallesServicios('Solo debe enviarnos la imagen de su interés al WhatsApp y estaremos coordinando para que realice el pago por medio de sinpe') ">
                         <div class="banner-features wow fadeIn animated hover-up">
                             <img src="assets/imgs/theme/icons/feature-2.png" alt="">
-                            <h4 class="bg-3">Ordena en línea</h4>
+                            <h4 class="bg-3">Método para realizar compras</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-3.png" alt="">
-                            <h4 class="bg-2">Ahorra dinero</h4>
-                        </div>
+                        <a href="https://instagram.com/jmboutique__19?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                            <div class="banner-features wow fadeIn animated hover-up">
+                                <img src="assets/imgs/theme/icons/feature-3.png" alt="">
+                                <h4 class="bg-2">Cuenta de Instagram</h4>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0"
+                        onclick="DetallesServicios('Las prendas se pueden apartar con el 25% del valor total y se da un mes para cancelar el monto') ">
                         <div class="banner-features wow fadeIn animated hover-up">
                             <img src="assets/imgs/theme/icons/feature-4.png" alt="">
-                            <h4 class="bg-4">Promociones</h4>
+                            <h4 class="bg-4">Sistema de Apartados</h4>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0"
+                        onclick="DetallesServicios('Actualmente contamos con una ropa seleccionada en promoción, estas cuentan con dicha etiqueta, se pueden elegir tres prendas por 	₡5,000 ') ">
                         <div class="banner-features wow fadeIn animated hover-up">
                             <img src="assets/imgs/theme/icons/feature-5.png" alt="">
-                            <h4 class="bg-5">Clientes felices</h4>
+                            <h4 class="bg-5">Promociones, de locos</h4>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-6.png" alt="">
-                            <h4 class="bg-6">Disponilidad 24/7</h4>
-                        </div>
+                        <a href="https://chat.whatsapp.com/Coeg6ZGfkmSCnZSNuF26K4" target="_blank">
+                            <div class="banner-features wow fadeIn animated hover-up">
+                                <img src="assets/imgs/theme/icons/feature-6.png" alt="">
+                                <h4 class="bg-6">Grupo de WhatsApp, únete </h4>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
         <section class="product-tabs section-padding position-relative wow fadeIn animated">
             <div class="container">
+                <div class="tab-header">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Nuevo</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Segunda</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">Promo</button>
+                        </li>
+                    </ul>
+                </div>
                 <hr />
                 <!--End nav-tabs-->
-                <div class="row product-grid-4" id="divProductos">
-
+                <div class="tab-content wow fadeIn animated" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
+                        <div class="row product-grid-4" id="divNuevo">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
+                        <div class="row product-grid-4" id="divSegunda">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
+                        <div class="row product-grid-4" id="divPromo">
+                        </div>
+                    </div>
                 </div>
                 <!--End product-grid-4-->
 
@@ -396,14 +428,37 @@
     </div>
 
     <!-- Image Modal -->
-    <div class="modal custom-modal" id="myModal" tabindex="-1" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-body" id="ModalBody">
+            <div class="modal-content" style="background-color: rgba(192,192,192,0.6);">
+                <!-- Modal Header -->
+                <div class="modal-header">
+
+                    <div class="form-group">
+                        <h1 id="modalDescripcion"></h1>
+                        <h1 id="modalPrecio"></h1>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                 </div>
+
+
             </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group" id="ModalBody">
+
+                </div>
+
+            </div>
+
         </div>
     </div>
     <!-- Vendor JS-->
@@ -433,8 +488,12 @@
     <script>
         obtenerInfo()
         async function obtenerInfo() {
-            const tok = await fetch("https://sheetdb.io/api/v1/uflkn5de3ffrx", {
-                method: 'GET',
+            var parametros = {
+                spr: "spInventarioAllWebSite"
+            };
+            const tok = await fetch("http://jandm.somee.com/Api/api/sp/sqnt", {
+                method: 'POST',
+                body: JSON.stringify(parametros),
                 headers: {
                     'Content-Type': "application/json; charset=utf-8",
                 }
@@ -442,57 +501,98 @@
 
             const data = await tok.json();
 
+            console.log(data)
+
             let cuerpo = ''
+            let Nuevo = ''
+            let Segunda = ''
+            let Promo = ''
             let comillaSimplre = "'";
 
 
             data.map(datos => {
                 let color = "";
-                if (datos.Categoria == "Nuevo") {
+                if (datos.categoria == "Nuevo") {
                     color = "new";
                 } else {
                     color = "hot";
                 }
-                cuerpo += '<div class="col-lg-3 col-md-4 col-12 col-sm-6">\
+
+                let Descripcion = datos.NombreCategoria + ' / ' + datos.Talla;
+                cuerpo = '<div class="col-lg-3 col-md-4 col-12 col-sm-6">\
                         <div class="product-cart-wrap mb-30">\
                             <div class="product-img-action-wrap">\
                                 <div class="product-img product-img-zoom">\
-                                    <img onClick="abrirModal(\''+ datos.URL + '\')" class="default-img" src="' + datos.URL + '" alt="">\
+                                    <img onClick="abrirModal(\''+ datos.imagen + '\',\'' + Descripcion + '\',\'' + datos.PrecioFinal + '\')" class="default-img" src="' + datos.imagen + '" alt="">\
                                 </div>\
                                 <div class="product-badges product-badges-position product-badges-mrg">\
-                                    <span class="'+ color + '">' + datos.Categoria + '</span>\
+                                    <span class="'+ color + '">' + datos.categoria + '</span>\
                                 </div>\
                             </div>\
                             <div class="product-content-wrap">\
                                 <div class="product-category">\
                                     <a href="#">J&M Boutique</a>\
                                 </div>\
-                                <h2><a href="shop-product-right.html">'+ datos.DetallePrenda + '</a></h2>\
+                                <h2><a href="shop-product-right.html">'+ Descripcion + '</a></h2>\
                                 <div class="rating-result">\
                                 </div>\
                                 <div class="product-price">\
-                                    <span>'+ datos.Precio + ' </span>\
+                                    <span>'+ datos.PrecioFinal + ' </span>\
                                 </div>\
                                 <div class="product-action-1 show">\
                                     <a aria-label="Descargar" class="action-btn hover-up"\
-                                        href="'+ datos.URL + '" download target="_blank"><i\
+                                        href="'+ datos.imagen + '" download target="_blank"><i\
                                             class="fi-rs-download"></i></a>\
                                 </div>\
                             </div>\
                         </div>\
                     </div>';
 
+                switch (datos.categoria) {
+                    case "Nuevo":
+                        Nuevo += cuerpo;
+                        break;
+                    case "Segunda":
+                        Segunda += cuerpo;
+                        break;
+                    case "Promo":
+                        Promo += cuerpo;
+                        break;
+
+                }
+
             })
 
-            document.getElementById("divProductos").innerHTML = cuerpo;
+            document.getElementById("divNuevo").innerHTML = Nuevo;
+            
+            document.getElementById("divSegunda").innerHTML = Segunda;
+            
+            document.getElementById("divPromo").innerHTML = Promo;
         }
 
-        function abrirModal(url) {
+        function abrirModal(url, detalle, precio) {
             let comillaSimplre = "'";
             let cuerpo = '<div class="deal">\
-                        <image src="' + url + '">\
+                <center>\
+                        <image src="' + url + '" style="max-height:585px;">\
+                            </center>\
                     </div>';
             document.getElementById("ModalBody").innerHTML = cuerpo;
+            document.getElementById("modalDescripcion").innerHTML = detalle;
+            document.getElementById("modalPrecio").innerHTML = precio;
+            $("#myModal").modal("toggle");
+
+
+        }
+
+        function DetallesServicios(descripcion) {
+            let comillaSimplre = "'";
+            let cuerpo = '<div class="deal">\
+                        <h2>'+ descripcion + '</h2>\
+                    </div>';
+            document.getElementById("ModalBody").innerHTML = cuerpo;
+            document.getElementById("modalDescripcion").innerHTML = "J&M Boutique";
+            document.getElementById("modalPrecio").innerHTML = "";
             $("#myModal").modal("toggle");
 
 

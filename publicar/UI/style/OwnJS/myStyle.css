@@ -1,0 +1,113 @@
+﻿
+.textError {
+    border-color: red;
+}
+
+.textError:hover {
+    border-color: red;
+}
+
+.textError:focus {
+    border-color: red;
+}
+
+table th {
+    text-align: center;
+    background-color: #2C74B3;
+    color: white;
+}
+
+table thead {
+    text-align: center;
+    background-color: #2C74B3;
+    color: white;
+}
+
+table tr {
+    text-align: center;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    transform: translate(0);
+}
+
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.flex-container {
+    display: flex;
+    text-align: center;
+}
+
+.flex-item-error {
+    background-color: #f1f1f1;
+    padding: 18px;
+    flex: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: red;
+    cursor: pointer;
+}
+
+.flex-item-completed {
+    background-color: #28B463;
+    color: #fff;
+    padding: 18px;
+    flex: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #239B56;
+    cursor: pointer;
+}
+
+.flex-item {
+    background-color: #EC7063;
+    color: #fff;
+    padding: 18px;
+    flex: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E74C3C;
+    cursor: pointer;
+}
+
+.flex-item-selected {
+    background-color: #5DADE2;
+    color: #fff;
+    padding: 18px;
+    flex: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #2E86C1;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .flex-item-selected, .flex-item, .flex-item-error {
+        flex: 0 0 23px;
+        padding: 10px;
+    }
+}
+
+.myScroll {
+    height: 52vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+

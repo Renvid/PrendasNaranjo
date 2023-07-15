@@ -158,7 +158,7 @@ body{
             <div class="row">
                 <div class="col-lg-2 col-md-3">
                     <div class="header__logo">
-                        <a href="../inicio/inicio.aspx">
+                        <a href="../inicio/inicio.aspx" id="imgLogo">
                             <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width: 60%"></a>
                     </div>
                 </div>
@@ -218,9 +218,9 @@ body{
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <!-- wsp button -->
-    <a href="https://wa.me/50686321956" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -63px; right: 23px;"
+    <a href="#" id="aContactar" style="position: fixed; z-index: 100; color: black; height: 179px; bottom: -63px; right: 23px;"
         target="_blank">Contactar al distribuidor</a>
-    <a href="https://wa.me/50686321956" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
+    <a href="#" id="aWhats" class="wsp" target="_blank"><i class="fa fa-whatsapp"></i></a>
     <!-- Js Plugins -->
     <script src="../style/js/jquery-3.3.1.min.js"></script>
     <script src="../style/js/bootstrap.min.js"></script>
@@ -240,7 +240,6 @@ body{
         var elements = document.getElementsByTagName('div');
 
         for (var i = 0; i < elements.length; i++) {
-            console.log(elements[i].innerText)
             if (elements[i].innerText.includes("Hosted Windows Virtual Server. 2.5GHz CPU, 2GB RAM, 60GB SSD. Try it now for $1")) {
                 elements[i].style.visibility = "hidden";
                 elements[i - 1].style.visibility = "hidden";
@@ -253,12 +252,39 @@ body{
                 elements[i].style.visibility = "hidden";
             }
         }
+
+        $.ajax({
+            type: "POST",
+            url: "../mantenimientos/Inicio.aspx/AllTable",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var xmlDoc = $.parseXML(data.d);
+                var xml = $(xmlDoc);
+                var info = xml.find("Inicio");
+
+
+                $(info).each(function () {
+                    document.getElementById("aContactar").href = "https://wa.me/506"+$(this).find("Telefono").text()
+                    document.getElementById("aWhats").href = "https://wa.me/506" +$(this).find("Telefono").text()
+
+                })
+
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        })
+
     })
 
     if (localStorage.getItem('Usuario') == "1") {
+        document.getElementById("imgLogo").style.visibility = "visible";
         document.getElementById("divMantenimientos").style.visibility = "visible";
         document.getElementById("divMantenimientos2").style.visibility = "visible";
     } else {
+        document.getElementById("imgLogo").style.visibility = "hidden";
         document.getElementById("divMantenimientos").style.visibility = "hidden";
         document.getElementById("divMantenimientos2").style.visibility = "hidden";
     }

@@ -69,8 +69,8 @@
                                     <input id="txtColorCategoria" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                 </div>
                                 <div class="form-group col-12 col-lg-4">
-                                    <label>Catálogo de ropa</label>
-                                    <input id="txtCatalogo" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
+                                    <label>Teléfono compañia</label>
+                                    <input id="txtTelefono" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                 </div>
                                 <div class="form-group col-12 col-lg-4">
                                     <label>Lista de precios</label>

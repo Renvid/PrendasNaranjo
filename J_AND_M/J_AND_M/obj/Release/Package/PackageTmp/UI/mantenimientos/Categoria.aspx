@@ -34,6 +34,7 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Estado</th>
+                                        <th>Catalogo</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoTb">
@@ -68,6 +69,10 @@
                                             Activo
                                         </label>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Catalogo</label>
+                                    <input id="txtCatalogo" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                 </div>
 
 
