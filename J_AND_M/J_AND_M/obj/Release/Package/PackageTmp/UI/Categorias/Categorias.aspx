@@ -81,11 +81,11 @@
                         <button class="btn btn-success" onclick="descargarImagenesDesdeGoogleDrive()">Descargar todas las imagenes</button>
                     </div>
                     <div class="col-lg-2 col-12" style="padding-top: 5px">
-                        <a class="btn btn-success" id="catalogo" href=".." target="_blank">Descargar Catálogo
+                        <a class="btn btn-success" id="catalogo" href=".." target="_blank" download="true">Descargar Catálogo
                         </a>
                     </div>
                     <div class="col-lg-2 col-12" style="padding-top: 5px">
-                        <a id="ListaPrecios" class="btn btn-success" href=".." download>Descargar lista de Precios
+                        <a id="ListaPrecios" class="btn btn-success" href=".." target="_blank"  download="true">Descargar lista de Precios
                         </a>
                     </div>
                 </div>
@@ -163,22 +163,21 @@
                 return new Promise((resolve, reject) => {
                     const enlaceTemporal = document.createElement('a');
                     enlaceTemporal.href = url;
-                    enlaceTemporal.download = nombreArchivo;
+                    enlaceTemporal.download = true;
+                    enlaceTemporal.target = '_blank';
 
                     enlaceTemporal.style.display = 'none';
                     document.body.appendChild(enlaceTemporal);
 
                     // Esperar a que el enlace se haya agregado correctamente antes de hacer click
-                    setTimeout(() => {
-                        try {
-                            enlaceTemporal.click();
-                            resolve();
-                        } catch (error) {
-                            reject(error);
-                        } finally {
-                            document.body.removeChild(enlaceTemporal);
-                        }
-                    }, 500);
+                    try {
+                        enlaceTemporal.click();
+                        resolve();
+                    } catch (error) {
+                        reject(error);
+                    } finally {
+                        document.body.removeChild(enlaceTemporal);
+                    }
                 });
             }
 
@@ -236,7 +235,7 @@
                                     <ul class="nice-scroll">'
 
                     document.getElementById("color").style.backgroundColor = $(this).find("Color").text();
-                    document.getElementById("ListaPrecios").href = $(this).find("ListaPrecios").text();
+
 
                     var params = "{ idGenero:'" + $(this).find("idGenero").text() + "' }";
                     $.ajax({
@@ -295,6 +294,7 @@
 
                         $(info).each(function () {
                             console.log($(this).find("Catalogo").text())
+                            document.getElementById("ListaPrecios").href = $(this).find("ListaPrecios").text();
                             document.getElementById("catalogo").href = $(this).find("Catalogo").text();
 
 
@@ -315,7 +315,7 @@
                             cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
                             <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
-                        <img style="max-width:65%" src="'+ $(this).find("UrlImg").text() + '" />\
+                        <img onerror="retryImageLoad(this,\''+ $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
                         </div>\
                         <div class="product__item__text">\
                               <center>\
@@ -374,7 +374,7 @@
                             cuerpo += '<div class="col-lg-4 col-md-6 col-sm-6" onclick="test(\'' + $(this).find("UrlImg").text() + '\')">\
                             <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
-                        <img style="max-width:65%" src="'+ $(this).find("UrlImg").text() + '" />\
+                        <img onerror="retryImageLoad(this,\''+ $(this).find("UrlImg").text() + '\')"  style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
                         </div>\
                         <div class="product__item__text">\
                               <center>\
@@ -405,6 +405,27 @@
             document.getElementById("imgModal").src = url;
             document.getElementById("downloadLink").href = url;
             $("#myModal").modal("toggle");
+        }
+
+        function retryImageLoad(img, URL) {
+            const maxRetries = 10;
+            let retries = 0;
+
+            function loadImg() {
+                img.src = URL;
+            }
+
+            img.onerror = function () {
+                if (retries < maxRetries) {
+                    retries++;
+                    loadImg();
+                } else {
+                    // Aquí puedes hacer algo si la imagen no carga después de varios intentos.
+                    console.log('No se pudo cargar la imagen después de varios intentos.' + URL);
+                }
+            };
+
+            loadImg(); // Inicia el primer intento de carga.
         }
 
 

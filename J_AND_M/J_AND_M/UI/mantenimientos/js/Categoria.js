@@ -37,6 +37,7 @@ function fillTable() {
 <td>" + $(this).find("Nombre").text() + "</td> \
 <td>" + Activo + "</td> \
 <td>" + $(this).find("Catalogo").text() + "</td> \
+<td>" + $(this).find("ListaPrecios").text() + "</td> \
 </tr>";
                     })
                 }
@@ -60,6 +61,7 @@ function fillTable() {
 function btnNew() {
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtCatalogo").value = "";
+    document.getElementById("txtListaPrecios").value = "";
     document.getElementById("cbActivo").checked = true;
     document.getElementById("titleModal").innerHTML = "Nuevo";
     idCategoria = 0;
@@ -86,6 +88,7 @@ function btnEdit_click(clicked_id) {
             $(info).each(function () {
                 document.getElementById("txtNombre").value = $(this).find("Nombre").text();
                 document.getElementById("txtCatalogo").value = $(this).find("Catalogo").text();
+                document.getElementById("txtListaPrecios").value = $(this).find("ListaPrecios").text();
 
                 if ($(this).find("Activo").text() == 1)
                     document.getElementById("cbActivo").checked = true
@@ -136,6 +139,7 @@ function btnAccept() {
         Activo = "1";
 
     var Catalogo = document.getElementById("txtCatalogo").value;
+    var ListaPrecios = document.getElementById("txtListaPrecios").value;
     if (validate()) {
         spinner.show();
         setTimeout(function () {
@@ -144,7 +148,8 @@ function btnAccept() {
                 idCategoria: idCategoria,
                 Nombre: Nombre,
                 Activo: Activo,
-                Catalogo: Catalogo
+                Catalogo: Catalogo,
+                ListaPrecios: ListaPrecios
             };
 
             $.ajax({

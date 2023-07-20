@@ -28,15 +28,15 @@ namespace J_AND_M.UI.mantenimientos
 
         //Funcion para crear o actualizar el formulario 
         [WebMethod]
-        public static void NewUpdate(int idCategoria, string Nombre, int Activo,string Catalogo)
+        public static void NewUpdate(int idCategoria, string Nombre, int Activo,string Catalogo, string ListaPrecios)
         {
             if (idCategoria == 0)
             {
-                DAL.CategoriaDAL.New(Nombre,Activo, Catalogo);
+                DAL.CategoriaDAL.New(Nombre,Activo, Catalogo, ListaPrecios);
             }
             else
             {
-                DAL.CategoriaDAL.Update(idCategoria, Nombre, Activo, Catalogo);
+                DAL.CategoriaDAL.Update(idCategoria, Nombre, Activo, Catalogo, ListaPrecios);
             }
         }
 
