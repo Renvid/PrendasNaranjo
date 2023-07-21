@@ -159,7 +159,7 @@ body{
                 <div class="col-lg-2 col-md-3">
                     <div class="header__logo">
                         <a href="../inicio/inicio.aspx" id="imgLogo">
-                            <img src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width: 60%"></a>
+                            <img id="logo" src="https://drive.google.com/uc?export=view&id=1iM736m6nzk5SmdA55Zmg6mGbVKIIyCzh" style="max-width: 60%"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -236,7 +236,9 @@ body{
 </body>
 
 <script>
+
     $(document).ready(() => {
+        setTimeout(function () {
         var elements = document.getElementsByTagName('div');
 
         for (var i = 0; i < elements.length; i++) {
@@ -251,7 +253,8 @@ body{
             if (elements[i].innerText.includes("Web hosting by")) {
                 elements[i].style.visibility = "hidden";
             }
-        }
+            }
+        }, 100);
 
         $.ajax({
             type: "POST",
@@ -267,7 +270,8 @@ body{
 
                 $(info).each(function () {
                     document.getElementById("aContactar").href = "https://wa.me/506"+$(this).find("Telefono").text()
-                    document.getElementById("aWhats").href = "https://wa.me/506" +$(this).find("Telefono").text()
+                    document.getElementById("aWhats").href = "https://wa.me/506" + $(this).find("Telefono").text()
+                    document.getElementById("logo").src = $(this).find("ListaPrecios").text()
 
                 })
 

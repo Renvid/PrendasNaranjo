@@ -192,15 +192,15 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab"
                                 data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one"
-                                aria-selected="true">Nuevo</button>
+                                aria-selected="true">Camisas Polo</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
-                                type="button" role="tab" aria-controls="tab-two" aria-selected="false">Segunda</button>
+                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" 
+                            type="button" role="tab" aria-controls="tab-two" aria-selected="false">Blusas Polo</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three"
-                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">Promo</button>
+                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">Blusas Estampadas</button>
                         </li>
                     </ul>
                 </div>
@@ -208,15 +208,15 @@
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
-                        <div class="row product-grid-4" id="divNuevo">
+                        <div class="row product-grid-4" id="divcamisasPolo">
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
-                        <div class="row product-grid-4" id="divSegunda">
+                        <div class="row product-grid-4" id="divblusasPolo">
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
-                        <div class="row product-grid-4" id="divPromo">
+                        <div class="row product-grid-4" id="divblusasEstampado">
                         </div>
                     </div>
                 </div>
@@ -259,6 +259,41 @@
             </div>
         </div>
     </div>
+
+    <!-- Image Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: rgba(192,192,192,0.6);">
+                <!-- Modal Header -->
+                <div class="modal-header">
+
+                    <div class="form-group">
+                        <h1 id="modalDescripcion"></h1>
+                        <h1 id="modalPrecio"></h1>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+
+
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group" id="ModalBody">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
     <!-- Vendor JS-->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
@@ -285,26 +320,154 @@
     <script src="assets/js/shop.js"></script>
 
     <script>
-        function retryImageLoad(img, URL) {
-            const maxRetries = 10;
-            let retries = 0;
-
-            function loadImg() {
-                img.src = URL;
-            }
-
-            img.onerror = function () {
-                if (retries < maxRetries) {
-                    retries++;
-                    loadImg();
-                } else {
-                    // Aquí puedes hacer algo si la imagen no carga después de varios intentos.
-                    console.log('No se pudo cargar la imagen después de varios intentos.' + URL);
-                }
+       
+       obtenerInfo()
+        async function obtenerInfo() {
+            var parametros = {
+                spr: "spPrendasAll_WebSite"
             };
+            const tok = await fetch("https://X-Mont.somee.com/API/api/sp/sqnt", {
+                method: 'POST',
+                body: JSON.stringify(parametros),
+                headers: {
+                    'Content-Type': "application/json; charset=utf-8",
+                }
+            })
 
-            loadImg(); // Inicia el primer intento de carga.
+            const data = await tok.json();
+
+            console.log(data)
+
+            let cuerpo = ''
+            let camisasPolo = ''
+            let blusasPolo = ''
+            let blusasEstampado = ''
+            let comillaSimple = "'";
+
+
+            data.map(datos => {
+                let estado = "";
+                let color = "";
+                if (datos.idCategoria == "2") {
+                    estado = "Masculino";
+                    color = "new";
+                } else {
+                    estado = "Femenino";
+                    color = "hot";
+                }
+
+
+                let Descripcion = datos.Nombre ;
+                cuerpo = '<div class="col-lg-3 col-md-4 col-12 col-sm-6">\
+                        <div class="product-cart-wrap mb-30">\
+                            <div class="product-img-action-wrap">\
+                                <div class="product-img product-img-zoom">\
+                                    <img class="default-img" src="' + datos.UrlImg + '" alt="">\
+                                </div>\
+                                <div class="product-badges product-badges-position product-badges-mrg">\
+                                    <span class="'+ color + '">' + estado + '</span>\
+                                </div>\
+                            </div>\
+                            <div class="product-content-wrap">\
+                                <div class="product-category">\
+                                    <a href="#">X-Mont</a>\
+                                </div>\
+                                <h2><a href="shop-product-right.html">'+ Descripcion + '</a></h2>\
+                                <div class="rating-result">\
+                                </div>\
+                                <div class="product-price">\
+                                    <span>'+ datos.Precio + ' </span>\
+                                </div>\
+                                <div class="product-action-1 show">\
+                                    <a aria-label="Consultar" class="action-btn hover-up"\
+                                        href="https://api.whatsapp.com/send/?phone=50686318997&text=Hola me gustaría tener información de la siguiente prenda  '+ datos.UrlImg + '" download target="_blank"><i\
+                                            class="fi-rs-smartphone"></i></a>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>';
+
+                switch (datos.idCategoria) {
+                    case 2:
+                    camisasPolo += cuerpo;
+                        break;
+                    case 5:
+                    blusasPolo += cuerpo;
+                        break;
+                    case 6:
+                    blusasEstampado += cuerpo;
+                        break;
+
+                }
+
+            })
+
+            document.getElementById("divcamisasPolo").innerHTML = camisasPolo;
+            
+            document.getElementById("divblusasPolo").innerHTML = blusasPolo;
+            
+            document.getElementById("divblusasEstampado").innerHTML = blusasEstampado;
         }
+
+        function abrirModal(url, detalle, precio) {
+            let comillaSimple = "'";
+            let cuerpo = '<div class="deal">\
+                <center>\
+                        <image src="' + url + '" style="max-height:585px;">\
+                            </center>\
+                    </div>';
+            document.getElementById("ModalBody").innerHTML = cuerpo;
+            document.getElementById("modalDescripcion").innerHTML = detalle;
+            document.getElementById("modalPrecio").innerHTML = precio;
+            $("#myModal").modal("toggle");
+
+
+        }
+
+        function DetallesServicios(descripcion) {
+            let comillaSimple = "'";
+            let cuerpo = '<div class="deal">\
+                        <h2>'+ descripcion + '</h2>\
+                    </div>';
+            document.getElementById("ModalBody").innerHTML = cuerpo;
+            document.getElementById("modalDescripcion").innerHTML = "X-Mont";
+            document.getElementById("modalPrecio").innerHTML = "";
+            $("#myModal").modal("toggle");
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        // function retryImageLoad(img, URL) {
+        //     const maxRetries = 10;
+        //     let retries = 0;
+
+        //     function loadImg() {
+        //         img.src = URL;
+        //     }
+
+        //     img.onerror = function () {
+        //         if (retries < maxRetries) {
+        //             retries++;
+        //             loadImg();
+        //         } else {
+        //             // Aquí puedes hacer algo si la imagen no carga después de varios intentos.
+        //             console.log('No se pudo cargar la imagen después de varios intentos.' + URL);
+        //         }
+        //     };
+
+        //     loadImg(); // Inicia el primer intento de carga.
+        // }
 
     </script>
 </body>

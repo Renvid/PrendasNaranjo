@@ -63,9 +63,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="filter__controls">
-                        <li class="active" data-filter="*">Más Vendidos y Nuevas Prendas</li>
-                        <li data-filter=".mas-vendido">Más Vendidos</li>
-                        <li data-filter=".nuevas" id="btnMasvendido">Nuevas prendas</li>
+                        <li class="active" data-filter="*">Productos estrella</li>
+                        <li data-filter=".mas-vendido">Productos en tendencia</li>
+                        <li data-filter=".nuevas" id="btnMasvendido">Productos nuevos</li>
                     </ul>
                 </div>
             </div>
@@ -152,7 +152,7 @@
 
                     $(info).each(function () {
                         var comillaSimple = "'";
-                        var cuerpo = '<div class="hero__items set-bg" style="background: url(' + comillaSimple + '' + $(this).find("Imagen_Carrousel_1").text() + '' + comillaSimple + ');background-repeat: no-repeat;background-size: cover;">\
+                        var cuerpo = '<div class="hero__items set-bg" style="background: url(' + comillaSimple + '' + $(this).find("Imagen_Carrousel_1").text() + '' + comillaSimple + ');background-repeat: no-repeat;background-size: cover; background-attachment: fixed;">\
                         <div class="container">\
                             <div class="row">\
                                 <div class="col-xl-5 col-lg-7 col-md-8">\
@@ -225,7 +225,7 @@
                     cuerpo += '<div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix nuevas">\
                         <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
-                        <img onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
+                        <img onerror="retryImageLoad(this,\''+ $(this).find("UrlImg").text() + '\')"  onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
                         </div>\
                         <div class="product__item__text">\
                               <center>\
@@ -267,7 +267,7 @@
                     cuerpo += '<div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix mas-vendido">\
                         <div class="product__item">\
                         <div class="product__item__pic set-bg d-flex justify-content-center">\
-                        <img onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
+                        <img onerror="retryImageLoad(this,\''+ $(this).find("UrlImg").text() + '\')"  onclick="test(\'' + $(this).find("UrlImg").text() + '\')" style="max-width:65%" src="' + $(this).find("UrlImg").text() + '" />\
                         </div>\
                         <div class="product__item__text">\
                         <center>\
@@ -286,6 +286,27 @@
                 alert("Error");
             }
         })
+
+        function retryImageLoad(img, URL) {
+            const maxRetries = 10;
+            let retries = 0;
+
+            function loadImg() {
+                img.src = URL;
+            }
+
+            img.onerror = function () {
+                if (retries < maxRetries) {
+                    retries++;
+                    loadImg();
+                } else {
+                    // Aquí puedes hacer algo si la imagen no carga después de varios intentos.
+                    console.log('No se pudo cargar la imagen después de varios intentos.' + URL);
+                }
+            };
+
+            loadImg(); // Inicia el primer intento de carga.
+        }
 
     </script>
 </asp:Content>

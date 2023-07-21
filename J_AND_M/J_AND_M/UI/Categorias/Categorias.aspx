@@ -320,7 +320,7 @@
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ Nombre + '</h6>\
-                            <a href="#" target="_blank"><h6>'+ Nombre + '</h6></a>\
+                            <a href="#" target="_blank">'+ Nombre + '</a>\
                             '+ Precio + '\
                             </center>\
                         </div>\
@@ -379,7 +379,7 @@
                         <div class="product__item__text">\
                               <center>\
                             <h6>'+ Nombre + '</h6>\
-                            <a href="#" target="_blank"><h6>'+ Nombre + '</h6></a>\
+                            <a href="#" target="_blank">'+ Nombre + '</a>\
                             '+ Precio + '\
                             </center>\
                         </div>\

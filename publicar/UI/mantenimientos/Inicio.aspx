@@ -73,7 +73,7 @@
                                     <input id="txtTelefono" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                 </div>
                                 <div class="form-group col-12 col-lg-4">
-                                    <label>Lista de precios</label>
+                                    <label>Logo</label>
                                     <input id="txtListaPrecios" type="text" class="form-control" required="required" data-placement="right" data-content="Este campo es requerido." />
                                 </div>
                             </div>

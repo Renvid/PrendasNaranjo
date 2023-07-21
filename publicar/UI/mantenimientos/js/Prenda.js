@@ -9,6 +9,27 @@ $(document).ready(function () {
     }, 500);
 });
 
+function retryImageLoad(img, URL) {
+    const maxRetries = 10;
+    let retries = 0;
+
+    function loadImg() {
+        img.src = URL;
+    }
+
+    img.onerror = function () {
+        if (retries < maxRetries) {
+            retries++;
+            loadImg();
+        } else {
+            // Aquí puedes hacer algo si la imagen no carga después de varios intentos.
+            console.log('No se pudo cargar la imagen después de varios intentos.' + URL);
+        }
+    };
+
+    loadImg(); // Inicia el primer intento de carga.
+}
+
 
 
 //Funcion para crear la tabla 
@@ -51,7 +72,7 @@ function fillTable() {
 
 
                     cuerpo += "<tr  alt='Editar' title='Editar'  style='cursor: pointer;'>\
-                            <td onClick='btnEdit_click(" + $(this).find("idPrenda").text() + ")' ><image class='rounded-circle' style='max-height:60px;max-width:60px;'  src='" + $(this).find("UrlImg").text() + "'></image></td> \
+                            <td onClick='btnEdit_click(" + $(this).find("idPrenda").text() + ")' ><image onerror='retryImageLoad(this, \"" + $(this).find("UrlImg").text() + "\")'  class='rounded-circle' style='max-height:60px;max-width:60px;'  src='" + $(this).find("UrlImg").text() + "'></image></td> \
                             <td onClick='btnEdit_click(" + $(this).find("idPrenda").text() + ")' > " + $(this).find("Nombre").text() + "</td > \
                             <td onClick='btnEdit_click(" + $(this).find("idPrenda").text() + ")' >" + $(this).find("Precio").text() + "</td> \
                             <td onClick='btnEdit_click(" + $(this).find("idPrenda").text() + ")' >" + $(this).find("NombreGenero").text() + "</td> \
@@ -65,7 +86,7 @@ function fillTable() {
 
 
                 document.getElementById("cuerpoTb").innerHTML = cuerpo;
-
+                let table = new DataTable('#gvTable');
             },
             error: function (result) {
                 alert("Error");
@@ -214,30 +235,6 @@ function btnEdit_click(clicked_id) {
 function validate() {
     var isGood = true;
 
-    var Nombre = document.getElementById("txtNombre").value;
-
-    if (Nombre.trim() == "") {
-        isGood = false;
-        document.getElementById("txtNombre").focus();
-        $("#txtNombre").popover("enable");
-        $("#txtNombre").popover("toggle");
-        setTimeout(function () {
-            $("#txtNombre").popover("toggle");
-            $("#txtNombre").popover("disable");
-        }, 3000);
-    }
-    var Precio = document.getElementById("txtPrecio").value;
-
-    if (Precio.trim() == "") {
-        isGood = false;
-        document.getElementById("txtPrecio").focus();
-        $("#txtPrecio").popover("enable");
-        $("#txtPrecio").popover("toggle");
-        setTimeout(function () {
-            $("#txtPrecio").popover("toggle");
-            $("#txtPrecio").popover("disable");
-        }, 3000);
-    }
     var UrlImg = document.getElementById("txtUrlImg").value;
 
     if (UrlImg.trim() == "") {

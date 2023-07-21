@@ -599,6 +599,7 @@
 
         localStorage.setItem('Usuario', null);
         $(document).ready(function () {
+            setTimeout(function () {
             var elements = document.getElementsByTagName('div');
 
             for (var i = 0; i < elements.length; i++) {
@@ -614,7 +615,8 @@
                 if (elements[i].innerText.includes("Web hosting by")) {
                     elements[i].style.visibility = "hidden";
                 }
-            }
+                }
+            }, 100);
 
             $('#pUsername').keypress(function (e) {
                 if (e.keyCode == 13)

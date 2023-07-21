@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\minor\OneDrive\Escritorio\PrendasNaranjo\publicar</_PublishTargetUrl>
-    <History>True|2023-07-20T19:59:48.9762482Z;True|2023-07-14T16:19:50.6871769-06:00;True|2023-07-05T16:45:06.1651680-06:00;True|2023-07-05T14:57:46.6414382-06:00;True|2023-06-29T13:02:19.0219618-06:00;True|2023-06-29T12:55:24.9918539-06:00;True|2022-09-18T17:38:14.9080991-05:00;True|2022-09-15T11:33:58.3456412-05:00;True|2022-09-03T16:12:54.1799777-05:00;True|2022-09-02T14:30:01.6032190-05:00;True|2022-09-02T13:40:58.6814758-05:00;True|2022-08-31T23:46:29.8220021-05:00;True|2022-08-31T18:04:26.9177250-05:00;False|2022-08-31T18:03:41.9288279-05:00;</History>
+    <History>True|2023-07-21T19:14:42.2425970Z;True|2023-07-21T12:26:30.0022093-06:00;True|2023-07-20T13:59:48.9762482-06:00;True|2023-07-14T16:19:50.6871769-06:00;True|2023-07-05T16:45:06.1651680-06:00;True|2023-07-05T14:57:46.6414382-06:00;True|2023-06-29T13:02:19.0219618-06:00;True|2023-06-29T12:55:24.9918539-06:00;True|2022-09-18T17:38:14.9080991-05:00;True|2022-09-15T11:33:58.3456412-05:00;True|2022-09-03T16:12:54.1799777-05:00;True|2022-09-02T14:30:01.6032190-05:00;True|2022-09-02T13:40:58.6814758-05:00;True|2022-08-31T23:46:29.8220021-05:00;True|2022-08-31T18:04:26.9177250-05:00;False|2022-08-31T18:03:41.9288279-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -22,10 +22,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/16/2019 13:33:30</publishTime>
     </File>
     <File Include="bin/J_AND_M.dll">
-      <publishTime>07/20/2023 13:59:47</publishTime>
+      <publishTime>07/21/2023 13:32:32</publishTime>
     </File>
     <File Include="bin/J_AND_M.pdb">
-      <publishTime>07/20/2023 13:59:47</publishTime>
+      <publishTime>07/21/2023 13:32:32</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>07/30/2013 17:57:30</publishTime>
@@ -202,7 +202,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2014 13:57:34</publishTime>
     </File>
     <File Include="index.aspx">
-      <publishTime>07/05/2023 16:10:50</publishTime>
+      <publishTime>07/21/2023 13:29:34</publishTime>
     </File>
     <File Include="UI/Calculadora/Calculadora.aspx">
       <publishTime>09/15/2022 10:10:42</publishTime>
@@ -211,7 +211,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/15/2022 10:28:16</publishTime>
     </File>
     <File Include="UI/Categorias/Categorias.aspx">
-      <publishTime>07/20/2023 13:57:59</publishTime>
+      <publishTime>07/21/2023 11:54:07</publishTime>
     </File>
     <File Include="UI/conta/conta.aspx">
       <publishTime>09/18/2022 15:39:26</publishTime>
@@ -220,7 +220,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/18/2022 15:42:10</publishTime>
     </File>
     <File Include="UI/inicio/inicio.aspx">
-      <publishTime>07/14/2023 14:51:23</publishTime>
+      <publishTime>07/21/2023 13:13:43</publishTime>
     </File>
     <File Include="UI/inicio/js/index.js">
       <publishTime>09/17/2022 17:48:52</publishTime>
@@ -247,7 +247,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/05/2023 13:56:57</publishTime>
     </File>
     <File Include="UI/mantenimientos/Inicio.aspx">
-      <publishTime>07/14/2023 15:17:48</publishTime>
+      <publishTime>07/21/2023 12:04:51</publishTime>
     </File>
     <File Include="UI/mantenimientos/js/Ahorro.js">
       <publishTime>09/15/2022 10:24:44</publishTime>
@@ -271,19 +271,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/14/2023 15:19:37</publishTime>
     </File>
     <File Include="UI/mantenimientos/js/Prenda.js">
-      <publishTime>06/29/2023 13:01:04</publishTime>
+      <publishTime>07/21/2023 12:03:59</publishTime>
     </File>
     <File Include="UI/mantenimientos/js/Usuario.js">
       <publishTime>06/29/2023 13:01:04</publishTime>
     </File>
     <File Include="UI/mantenimientos/Prenda.aspx">
-      <publishTime>07/05/2023 13:57:35</publishTime>
+      <publishTime>07/21/2023 12:02:23</publishTime>
     </File>
     <File Include="UI/mantenimientos/Usuario.aspx">
       <publishTime>07/05/2023 13:57:32</publishTime>
     </File>
     <File Include="UI/master/master.Master">
-      <publishTime>07/14/2023 15:29:37</publishTime>
+      <publishTime>07/21/2023 13:32:24</publishTime>
     </File>
     <File Include="UI/Pendiente/js/Pendiente.js">
       <publishTime>09/18/2022 17:36:34</publishTime>
@@ -409,7 +409,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2023 13:01:04</publishTime>
     </File>
     <File Include="UI/style/css/style.css">
-      <publishTime>07/05/2023 15:59:39</publishTime>
+      <publishTime>07/21/2023 11:48:03</publishTime>
     </File>
     <File Include="UI/style/css/style.css.map">
       <publishTime>06/29/2023 13:01:04</publishTime>
@@ -1447,7 +1447,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/15/2022 11:27:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/14/2023 16:19:49</publishTime>
+      <publishTime>07/21/2023 13:14:40</publishTime>
     </File>
   </ItemGroup>
 </Project>
