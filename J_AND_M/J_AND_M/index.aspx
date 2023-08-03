@@ -532,9 +532,7 @@
         }
     </style>
 </head>
-<body style="background-image: url('https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); /* full height */
-  height: 100%; /* center and scale the image nicely */
-  background-position: center; background-repeat: no-repeat; background-size: cover;">
+<body >
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
     <!-- Page Preloder -->
     <div id="preloder">

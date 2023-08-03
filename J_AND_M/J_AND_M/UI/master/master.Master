@@ -287,6 +287,10 @@ body{
         document.getElementById("imgLogo").style.visibility = "visible";
         document.getElementById("divMantenimientos").style.visibility = "visible";
         document.getElementById("divMantenimientos2").style.visibility = "visible";
+    } else if (localStorage.getItem('Usuario') != null && localStorage.getItem('Usuario') != "null") {
+        document.getElementById("imgLogo").style.visibility = "visible";
+        document.getElementById("divMantenimientos").style.visibility = "hidden";
+        document.getElementById("divMantenimientos2").style.visibility = "hidden";
     } else {
         document.getElementById("imgLogo").style.visibility = "hidden";
         document.getElementById("divMantenimientos").style.visibility = "hidden";

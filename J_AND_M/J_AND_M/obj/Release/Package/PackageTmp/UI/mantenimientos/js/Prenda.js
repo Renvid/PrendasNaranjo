@@ -36,6 +36,9 @@ function retryImageLoad(img, URL) {
 function fillTable() {
     spinner.show();
 
+    let table = new DataTable('#gvTable');
+    table.destroy();
+
     setTimeout(function () {
         var valorGenero = 0;
         if (document.getElementById("ddlGenero").value != "")
